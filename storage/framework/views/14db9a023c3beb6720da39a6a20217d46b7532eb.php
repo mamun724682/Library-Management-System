@@ -52,16 +52,14 @@
 
 									<li class="menu__item"><a class="menu__link" href="" data-toggle="modal" data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a> </li>
 									<li class="menu__item"><a class="menu__link" href="" data-toggle="modal" data-target="#myModal3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Register</a> </li>
-
-
-
-
 							<?php else: ?>
+								<li class="menu__item"><a href="<?php echo e(route('home')); ?>" class="menu__link">My panel</a></li>
+
 								<li class="menu__item">
-									<form  action="<?php echo e(route('logout')); ?>" method="POST">
+									<form  action="<?php echo e(route('logout')); ?>" method="POST" >
 										<?php echo e(csrf_field()); ?>
 
-										<button type="submit"><b>Logout</b></button>
+										<button type="submit" class="menu__link"><b>Logout</b></button>
 									</form>
 								</li>
 							<?php endif; ?>
@@ -539,6 +537,7 @@
 
 		</div>
 	</div>
+
 </div>
 
 <?php echo $__env->make('frontEnd.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

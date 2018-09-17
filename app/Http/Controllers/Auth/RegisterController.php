@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Registered;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -84,7 +85,7 @@ class RegisterController extends Controller
             $identity = $i_new_name;
         }
 
-
+        Session::flash('info', 'Your registration has been submitted. Please wait for verification :)');
 
         return User::create([
             'name' => $data['name'],

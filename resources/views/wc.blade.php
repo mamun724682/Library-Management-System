@@ -52,15 +52,13 @@
 
 									<li class="menu__item"><a class="menu__link" href="" data-toggle="modal" data-target="#myModal2"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a> </li>
 									<li class="menu__item"><a class="menu__link" href="" data-toggle="modal" data-target="#myModal3"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Register</a> </li>
-
-
-
-
 							@else
+								<li class="menu__item"><a href="{{ route('home') }}" class="menu__link">My panel</a></li>
+
 								<li class="menu__item">
-									<form  action="{{ route('logout') }}" method="POST">
+									<form  action="{{ route('logout') }}" method="POST" >
 										{{ csrf_field() }}
-										<button type="submit"><b>Logout</b></button>
+										<button type="submit" class="menu__link"><b>Logout</b></button>
 									</form>
 								</li>
 							@endif
@@ -536,6 +534,7 @@
 
 		</div>
 	</div>
+
 </div>
 
 @include('frontEnd.footer')

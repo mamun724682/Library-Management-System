@@ -72,9 +72,6 @@ class UsersController extends Controller
         Session::flash('success','User Added Successfully');
         return redirect()->route('users.index');
 
-
-
-
     }
 
     /**
@@ -150,7 +147,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         if ($user->id == Auth::user()->id) {
-            Session::flash('fail','Dont Delete Yourself');
+            Session::flash('fail','Don\'t Delete Yourself');
             return redirect()->back();
         }
 
