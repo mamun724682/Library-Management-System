@@ -76,5 +76,28 @@
 			});
 		</script>
 		<!-- //here ends scrolling icon -->
+
+		
+		<script src="<?php echo e(asset('js/toastr.min.js')); ?>"></script>
+		<script>
+			<?php if(Session::has('success')): ?>
+
+			toastr.success('<?php echo e(Session::get('success')); ?>')
+
+			<?php endif; ?>
+
+			<?php if(Session::has('info')): ?>
+
+			toastr.info('<?php echo e(Session::get('info')); ?>')
+
+			<?php endif; ?>
+
+			<?php if(Session::has('fail')): ?>
+
+			toastr.error('<?php echo e(Session::get('fail')); ?>')
+
+			<?php endif; ?>
+
+		</script>
 	</body>
 	</html>

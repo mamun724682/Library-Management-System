@@ -7,10 +7,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
 
-                @if ($errors->has('active'))
+                {{-- @if ($errors->has('active'))
                     <p class="text-danger text-center">{{ $errors->first('active') }}</p>
 
-                @endif
+                @endif --}}
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">

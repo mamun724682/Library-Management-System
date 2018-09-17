@@ -76,7 +76,7 @@ background-color:#ffff99;
                         <a href="{{ route('user.bookList') }}"><span class="fa fa-users"></span> <span class="xn-text">Book List</span></a>
                     </li>
                     <li >
-                        <a href="{{ route('user.issueBooks') }}"><span class="fa fa-users"></span> <span class="xn-text">My Issue Books</span></a>
+                        <a href="{{ route('user.issueBooks') }}"><span class="fa fa-users"></span> <span class="xn-text">My Issued Books</span></a>
                     </li>
                 @endif
 

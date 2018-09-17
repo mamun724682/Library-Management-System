@@ -76,5 +76,28 @@
 			});
 		</script>
 		<!-- //here ends scrolling icon -->
+
+		{{-- Toastr --}}
+		<script src="{{ asset('js/toastr.min.js') }}"></script>
+		<script>
+			@if(Session::has('success'))
+
+			toastr.success('{{ Session::get('success') }}')
+
+			@endif
+
+			@if(Session::has('info'))
+
+			toastr.info('{{ Session::get('info') }}')
+
+			@endif
+
+			@if(Session::has('fail'))
+
+			toastr.error('{{ Session::get('fail') }}')
+
+			@endif
+
+		</script>
 	</body>
 	</html>

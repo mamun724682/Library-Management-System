@@ -12,7 +12,10 @@
 
     <!-- Styles -->
     
-    <link href="<?php echo e(URL::asset('css/app.css')); ?>" rel="stylesheet" type="text/css" >
+    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet" type="text/css" >
+
+    
+    <link href="<?php echo e(asset('css/toastr.min.css')); ?>" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -80,5 +83,28 @@
 
     <!-- Scripts -->
     <script src="<?php echo e(asset('js/app.js')); ?>"></script>
+
+    
+    <script src="<?php echo e(asset('js/toastr.min.js')); ?>"></script>
+    <script>
+        <?php if(Session::has('success')): ?>
+
+        toastr.success('<?php echo e(Session::get('success')); ?>')
+
+        <?php endif; ?>
+
+        <?php if(Session::has('info')): ?>
+
+        toastr.info('<?php echo e(Session::get('info')); ?>')
+
+        <?php endif; ?>
+
+        <?php if(Session::has('fail')): ?>
+
+        toastr.error('<?php echo e(Session::get('fail')); ?>')
+
+        <?php endif; ?>
+
+    </script>
 </body>
 </html>

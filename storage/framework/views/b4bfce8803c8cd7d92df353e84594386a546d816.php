@@ -5,10 +5,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
 
-                <?php if($errors->has('active')): ?>
-                    <p class="text-danger text-center"><?php echo e($errors->first('active')); ?></p>
-
-                <?php endif; ?>
+                
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="<?php echo e(route('login')); ?>">

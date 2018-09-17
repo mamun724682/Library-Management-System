@@ -22,6 +22,9 @@
 	<link href="<?php echo e(asset('frontEnd/css/style.css')); ?>" rel="stylesheet" type="text/css" media="all" />
 
 	<link rel="stylesheet" href="<?php echo e(asset('frontEnd/css/flexslider.css')); ?>" type="text/css" media="screen" property="" />
+
+	
+    <link href="<?php echo e(asset('css/toastr.min.css')); ?>" rel="stylesheet">
 	<!-- font-awesome-icons -->
 	<link href="<?php echo e(asset('frontEnd/css/font-awesome.css')); ?>" rel="stylesheet">
 	<!-- //font-awesome-icons -->
