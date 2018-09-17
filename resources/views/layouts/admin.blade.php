@@ -102,20 +102,26 @@ background-color:#ffff99;
                         <a href="#"><span class="fa fa-book"></span> <span class="xn-text">Books</span></a>
                         <ul>
                             <li>
-                                <a href="{{ route('books.create') }}"><span class="fa fa-plus"></span> <span class="xn-text">Add Books</span></a>
+                                <a href="{{ route('books.index') }}"><span class="fa fa-plus"></span> <span class="xn-text">Book List</span></a>
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <a href="{{ route('books.index') }}"><span class="fa fa-plus"></span> <span class="xn-text">Book List</span></a>
+                                <a href="{{ route('books.create') }}"><span class="fa fa-plus"></span> <span class="xn-text">Add Books</span></a>
                             </li>
                         </ul>
                     </li>
                 @endif
 
+                @if (Auth::user()->is_admin)
+                    <li >
+                        <a href="{{ route('issue.index') }}"><span class="fa fa-sitemap"></span> <span class="xn-text">Book Issued List</span></a>
+                    </li>
+                @endif
 
 
-                <li class="xn-openable">
+
+                {{-- <li class="xn-openable">
                     <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Pages</span></a>
                     <ul>
                         <li><a href="pages-gallery.html"><span class="fa fa-image"></span> Gallery</a></li>
@@ -260,7 +266,7 @@ background-color:#ffff99;
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
             </ul>
             <!-- END X-NAVIGATION -->
