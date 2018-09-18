@@ -98,6 +98,12 @@
 
 			<?php endif; ?>
 
+			<?php if(Session::has('warning')): ?>
+
+			toastr.warning('<?php echo e(Session::get('warning')); ?>')
+
+			<?php endif; ?>
+
 		</script>
 	</body>
 	</html>

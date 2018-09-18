@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>LMS-Library Management</title>
+	<title>LMS-Library Management System</title>
 	<link rel="shortcut icon" href="<?php echo e(asset('favicon.ico')); ?>" />
 	<!-- custom-theme -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
