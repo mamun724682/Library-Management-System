@@ -1,6 +1,6 @@
 
 @include('frontEnd.header')
-@include('includes.errors')
+
 
 <body>
 

@@ -10,24 +10,7 @@
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
     <!-- END META SECTION -->
 
-    <!-- CSS INCLUDE -->
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-    .box{
-    width:600px;
-    margin:0 auto;
-    border:1px solid #ccc;
-}
-.has-error
-{
-border-color:#cc0000;
-background-color:#ffff99;
-}
-</style> --}}
 
-{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/> --}}
 <link rel="stylesheet" type="text/css" id="theme" href="{{ asset('admin/css/theme-blue.css') }}"/>
 
 {{-- Toastr --}}
@@ -100,14 +83,15 @@ background-color:#ffff99;
                 @if (Auth::user()->is_admin)
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-book"></span> <span class="xn-text">Books</span></a>
+
                         <ul>
                             <li>
-                                <a href="{{ route('books.index') }}"><span class="fa fa-plus"></span> <span class="xn-text">Book List</span></a>
+                                <a href="{{ route('books.create') }}"><span class="fa fa-plus"></span> <span class="xn-text">Add Books</span></a>
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <a href="{{ route('books.create') }}"><span class="fa fa-plus"></span> <span class="xn-text">Add Books</span></a>
+                                <a href="{{ route('books.index') }}"><span class="fa fa-plus"></span> <span class="xn-text">Book List</span></a>
                             </li>
                         </ul>
                     </li>
@@ -394,8 +378,7 @@ toastr.info('{{ Session::get('fail') }}')
 
 </script>
 
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> --}}
+
 @yield('js')
 <!-- END SCRIPTS -->
 </body>
