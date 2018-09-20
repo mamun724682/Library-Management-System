@@ -501,7 +501,7 @@
 
 				</div>
 				<div class="col-md-12 w3layouts_footer_grid text-center">
-					<p>© <?php echo date("Y"); ?> GONO LIBRARY. All Rights Reserved | Design by <a href="http://tarifhossaintony.000webhostapp.com/" target="_blank">Engineers</a></p>
+					<p>© <?php echo date("Y"); ?> GONO LIBRARY. All Rights Reserved | Design by CSE 19th Batch</p>
 				</div>
 			</div>
 
