@@ -66,12 +66,7 @@
 
 						</ul>
 
-						<!-- <div class="w3_agileits_search">
-						<form action="#" method="post">
-						<input type="search" name="Search" placeholder="Search here..." ="">
-						<input type="submit" value=" ">
-					</form>
-				</div> -->
+
 			</nav>
 		</div>
 	</nav>
@@ -85,36 +80,21 @@
 				<div class="w3layouts-banner-top">
 
 					<div class="container">
-						<!-- <div class="agileits-banner-info">
-						<span>Education</span>
-						<h3>For the Creatives</h3>
-						<p>You can learn anything</p>
 
-					</div> -->
 				</div>
 			</div>
 		</li>
 		<li>
 			<div class="w3layouts-banner-top w3layouts-banner-top1">
 				<div class="container">
-					<!-- <div class="agileits-banner-info">
-					<span>Free</span>
-					<h3>Premium Courses</h3>
-					<p>You only have to know one thing</p>
 
-				</div> -->
 			</div>
 		</div>
 	</li>
 	<li>
 		<div class="w3layouts-banner-top w3layouts-banner-top2">
 			<div class="container">
-				<!-- <div class="agileits-banner-info">
-				<span>Education</span>
-				<h3>For the Creatives</h3>
-				<p>You can learn anything.</p>
 
-			</div> -->
 
 		</div>
 	</div>
@@ -524,7 +504,7 @@
 
 				</div>
 				<div class="col-md-12 w3layouts_footer_grid text-center">
-					<p>© 2018 GONO LIBRARY. All Rights Reserved | Design by <a href="http://tarifhossaintony.000webhostapp.com/" target="_blank">Engineers</a></p>
+					<p>© <?php echo date("Y"); ?> GONO LIBRARY. All Rights Reserved | Design by <a href="http://tarifhossaintony.000webhostapp.com/" target="_blank">Engineers</a></p>
 				</div>
 			</div>
 
