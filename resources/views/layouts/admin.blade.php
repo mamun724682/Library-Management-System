@@ -70,17 +70,6 @@
                 @endif
 
                 @if (Auth::user()->is_admin)
-                    <li >
-                        <a href="{{ route('category.index') }}"><span class="fa fa-list-alt"></span> <span class="xn-text">Categories</span></a>
-                    </li>
-                @endif
-
-                @if (Auth::user()->is_admin)
-                    <li >
-                        <a href="{{ route('shelves.index') }}"><span class="fa fa-database"></span> <span class="xn-text">Book Shelves</span></a>
-                    </li>
-                @endif
-                @if (Auth::user()->is_admin)
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-book"></span> <span class="xn-text">Books</span></a>
 
@@ -91,7 +80,7 @@
                         </ul>
                         <ul>
                             <li>
-                                <a href="{{ route('books.index') }}"><span class="fa fa-plus"></span> <span class="xn-text">Book List</span></a>
+                                <a href="{{ route('books.index') }}"><span class="fa fa-list-alt"></span> <span class="xn-text">Book List</span></a>
                             </li>
                         </ul>
                     </li>
@@ -99,7 +88,24 @@
 
                 @if (Auth::user()->is_admin)
                     <li >
-                        <a href="{{ route('issue.index') }}"><span class="fa fa-sitemap"></span> <span class="xn-text">Book Issued List</span></a>
+                        <a href="{{ route('category.index') }}"><span class="fa fa-tasks"></span> <span class="xn-text">Categories</span></a>
+                    </li>
+                @endif
+
+                @if (Auth::user()->is_admin)
+                    <li >
+                        <a href="{{ route('shelves.index') }}"><span class="fa fa-database"></span> <span class="xn-text">Book Shelves</span></a>
+                    </li>
+                @endif
+
+                @if (Auth::user()->is_admin)
+                    <li >
+                        <a href="{{ route('issue.index') }}"><span class="fa fa-thumb-tack"></span> <span class="xn-text">Book Issued List</span></a>
+                    </li>
+                @endif
+                @if (Auth::user()->is_admin)
+                    <li >
+                        <a href="{{ route('issue.returned') }}"><span class="fa fa-archive"></span> <span class="xn-text">Book Returned List</span></a>
                     </li>
                 @endif
 

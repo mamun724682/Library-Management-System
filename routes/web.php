@@ -42,6 +42,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin']], function(){
     // Route::post('/email_available/check', 'Admin\BooksManagementController@check')->name('email_available.check');
 
     Route::resource('issue', 'Admin\IssueController');
+    Route::get('issue/book/returned', 'Admin\IssueController@returned')->name('issue.returned');
+
     Route::get('issue/book_return/{id}', 'Admin\IssueController@book_returned')->name('book.return');
     Route::get('issue/book_pending/{id}', 'Admin\IssueController@book_pending')->name('book.pending');
 

@@ -18,7 +18,18 @@ class IssueController extends Controller
     {
 
         return view('admin.issue.issue')
-                ->with('issue_books', IssueBook::orderBy('issue_date','desc')->get());
+                ->with('issue_books', IssueBook::orderBy('issue_date','desc')
+                ->where('status', 1)
+                ->get());
+    }
+
+    public function returned()
+    {
+
+        return view('admin.issue.issue')
+                ->with('issue_books', IssueBook::orderBy('issue_date','desc')
+                ->where('status', 0)
+                ->get());
     }
 
     /**

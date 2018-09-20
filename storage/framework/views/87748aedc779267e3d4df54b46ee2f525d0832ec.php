@@ -10,9 +10,6 @@
     <link rel="icon" href="<?php echo e(asset('favicon.ico')); ?>" type="image/x-icon" />
     <!-- END META SECTION -->
 
-    <!-- CSS INCLUDE -->
-    
-
 
 <link rel="stylesheet" type="text/css" id="theme" href="<?php echo e(asset('admin/css/theme-blue.css')); ?>"/>
 
@@ -73,8 +70,25 @@
                 <?php endif; ?>
 
                 <?php if(Auth::user()->is_admin): ?>
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-book"></span> <span class="xn-text">Books</span></a>
+
+                        <ul>
+                            <li>
+                                <a href="<?php echo e(route('books.create')); ?>"><span class="fa fa-plus"></span> <span class="xn-text">Add Books</span></a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="<?php echo e(route('books.index')); ?>"><span class="fa fa-list-alt"></span> <span class="xn-text">Book List</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+
+                <?php if(Auth::user()->is_admin): ?>
                     <li >
-                        <a href="<?php echo e(route('category.index')); ?>"><span class="fa fa-list-alt"></span> <span class="xn-text">Categories</span></a>
+                        <a href="<?php echo e(route('category.index')); ?>"><span class="fa fa-tasks"></span> <span class="xn-text">Categories</span></a>
                     </li>
                 <?php endif; ?>
 
@@ -83,25 +97,15 @@
                         <a href="<?php echo e(route('shelves.index')); ?>"><span class="fa fa-database"></span> <span class="xn-text">Book Shelves</span></a>
                     </li>
                 <?php endif; ?>
-                <?php if(Auth::user()->is_admin): ?>
-                    <li class="xn-openable">
-                        <a href="#"><span class="fa fa-book"></span> <span class="xn-text">Books</span></a>
-                        <ul>
-                            <li>
-                                <a href="<?php echo e(route('books.index')); ?>"><span class="fa fa-plus"></span> <span class="xn-text">Book List</span></a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <a href="<?php echo e(route('books.create')); ?>"><span class="fa fa-plus"></span> <span class="xn-text">Add Books</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                <?php endif; ?>
 
                 <?php if(Auth::user()->is_admin): ?>
                     <li >
-                        <a href="<?php echo e(route('issue.index')); ?>"><span class="fa fa-sitemap"></span> <span class="xn-text">Book Issued List</span></a>
+                        <a href="<?php echo e(route('issue.index')); ?>"><span class="fa fa-thumb-tack"></span> <span class="xn-text">Book Issued List</span></a>
+                    </li>
+                <?php endif; ?>
+                <?php if(Auth::user()->is_admin): ?>
+                    <li >
+                        <a href="<?php echo e(route('issue.returned')); ?>"><span class="fa fa-archive"></span> <span class="xn-text">Book Returned List</span></a>
                     </li>
                 <?php endif; ?>
 
@@ -236,7 +240,6 @@ toastr.info('<?php echo e(Session::get('fail')); ?>')
 <?php endif; ?>
 
 </script>
-
 
 
 <?php echo $__env->yieldContent('js'); ?>
