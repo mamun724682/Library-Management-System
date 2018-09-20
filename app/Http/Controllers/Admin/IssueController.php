@@ -19,7 +19,7 @@ class IssueController extends Controller
 
         return view('admin.issue.issue')
                 ->with('issue_books', IssueBook::orderBy('issue_date','desc')
-                ->where('status', 1)
+                ->where('status', 0)
                 ->get());
     }
 
@@ -28,7 +28,7 @@ class IssueController extends Controller
 
         return view('admin.issue.issue')
                 ->with('issue_books', IssueBook::orderBy('issue_date','desc')
-                ->where('status', 0)
+                ->where('status', 1)
                 ->get());
     }
 

@@ -54,6 +54,8 @@
                     <a href="{{ route('home') }}"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
                 </li>
 
+                
+                {{-- User Sidebar --}}
                 @if (!Auth::user()->is_admin)
                     <li >
                         <a href="{{ route('user.bookList') }}"><span class="fa fa-users"></span> <span class="xn-text">Book List</span></a>
@@ -62,7 +64,9 @@
                         <a href="{{ route('user.issueBooks') }}"><span class="fa fa-users"></span> <span class="xn-text">My Issued Books</span></a>
                     </li>
                 @endif
-
+                
+                
+                {{-- Admin Sidebar --}}
                 @if (Auth::user()->is_admin)
                     <li >
                         <a href="{{ route('users.index') }}"><span class="fa fa-users"></span> <span class="xn-text">Users</span></a>

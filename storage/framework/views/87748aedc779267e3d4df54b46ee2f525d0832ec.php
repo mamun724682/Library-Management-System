@@ -54,6 +54,8 @@
                     <a href="<?php echo e(route('home')); ?>"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
                 </li>
 
+                
+                
                 <?php if(!Auth::user()->is_admin): ?>
                     <li >
                         <a href="<?php echo e(route('user.bookList')); ?>"><span class="fa fa-users"></span> <span class="xn-text">Book List</span></a>
@@ -62,7 +64,9 @@
                         <a href="<?php echo e(route('user.issueBooks')); ?>"><span class="fa fa-users"></span> <span class="xn-text">My Issued Books</span></a>
                     </li>
                 <?php endif; ?>
-
+                
+                
+                
                 <?php if(Auth::user()->is_admin): ?>
                     <li >
                         <a href="<?php echo e(route('users.index')); ?>"><span class="fa fa-users"></span> <span class="xn-text">Users</span></a>

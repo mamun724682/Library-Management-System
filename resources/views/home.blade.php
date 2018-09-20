@@ -41,7 +41,7 @@
                     @else
                         @if ($issueBooks)
 
-                            <div class="col-md-6" style="border: 2px solid gray">
+                            <div class="col-md-5" style="border: 2px solid gray">
                                 <!-- START WIDGET REGISTRED -->
                                 <div class="widget widget-default">
                                     <div class="widget-item-left">
@@ -71,10 +71,37 @@
 
                             </div>
 
+                            <div class="col-md-1">
+                                
+                            </div>
+                            
+                            @if (count($issueBooks))
+                                <div class="col-md-5" style="border: 2px solid gray">
+                                    <!-- START WIDGET REGISTRED -->
+                                    <div class="widget widget-default">
+                                        <div class="widget-item-left">
+                                            <span class="fa fa-warning blink_me" style="font-size:48px;color:red"></span>
+                                        </div>
+                                        <div class="widget-data">
+                                            <div class="col-sm-12">
+                                                <h4 class="text-warning">Warning Message</h4>
+                                                <ul class="list-group ">
+                                                    @foreach ($issueBooks as $book)
+                                                        <li class="list-group-item">
+                                                                {{ $book->book->title }} book | <span @if (date('Y-m-d') == $book->return_date || date('Y-m-d') > $book->return_date)
+                                                                    class="blink_me "
+                                                            @endif>Dateline over!<br>Kindly return this book ASAP.Otherwise you will be charged.</span>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
 
+                                    </div>
+                                    <!-- END WIDGET REGISTRED -->
 
-
-
+                                </div>
+                            @endif
 
                         @endif
                     @endif

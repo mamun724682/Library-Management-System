@@ -39,7 +39,7 @@
                     <?php else: ?>
                         <?php if($issueBooks): ?>
 
-                            <div class="col-md-6" style="border: 2px solid gray">
+                            <div class="col-md-5" style="border: 2px solid gray">
                                 <!-- START WIDGET REGISTRED -->
                                 <div class="widget widget-default">
                                     <div class="widget-item-left">
@@ -69,10 +69,37 @@
 
                             </div>
 
+                            <div class="col-md-1">
+                                
+                            </div>
+                            
+                            <?php if(count($issueBooks)): ?>
+                                <div class="col-md-5" style="border: 2px solid gray">
+                                    <!-- START WIDGET REGISTRED -->
+                                    <div class="widget widget-default">
+                                        <div class="widget-item-left">
+                                            <span class="fa fa-warning blink_me" style="font-size:48px;color:red"></span>
+                                        </div>
+                                        <div class="widget-data">
+                                            <div class="col-sm-12">
+                                                <h4 class="text-warning">Warning Message</h4>
+                                                <ul class="list-group ">
+                                                    <?php $__currentLoopData = $issueBooks; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <li class="list-group-item">
+                                                                <?php echo e($book->book->title); ?> book | <span <?php if(date('Y-m-d') == $book->return_date || date('Y-m-d') > $book->return_date): ?>
+                                                                    class="blink_me "
+                                                            <?php endif; ?>>Dateline over!<br>Kindly return this book ASAP.Otherwise you will be charged.</span>
+                                                        </li>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                </ul>
+                                            </div>
+                                        </div>
 
+                                    </div>
+                                    <!-- END WIDGET REGISTRED -->
 
-
-
+                                </div>
+                            <?php endif; ?>
 
                         <?php endif; ?>
                     <?php endif; ?>

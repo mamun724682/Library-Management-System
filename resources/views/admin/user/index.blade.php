@@ -6,11 +6,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">User</div>
+                <div class="panel-heading"><h1><b>Users</b></h1></div>
                 <div class="pull-right">
                     <div class="col-sm-12">
                         <br>
-                        <a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
+                        <a href="{{ route('users.create') }}" class="btn btn-primary"><span class="fa fa-user"></span>Add User</a>
                     </div>
                 </div>
 
