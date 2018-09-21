@@ -31,7 +31,7 @@
                                 @foreach ($shelves as $shelf)
                                   <tr>
                                     <td>{{ $i++ }}</td>
-                                    <td>{{ $shelf->name }}</td>
+                                    <td><a href="{{ route('shelf.books', $shelf->id) }}" style="text-decoration: none;">{{ $shelf->name }}</a></td>
                                     <td>{{ $shelf->created_at->diffForHumans() }}</td>
                                     <td>
                                       <form class="" action="{{ route('shelves.destroy',  $shelf->id) }}" method="post">

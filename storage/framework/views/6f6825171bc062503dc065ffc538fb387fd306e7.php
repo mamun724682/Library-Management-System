@@ -29,7 +29,7 @@
                                 <?php $__currentLoopData = $shelves; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $shelf): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                   <tr>
                                     <td><?php echo e($i++); ?></td>
-                                    <td><?php echo e($shelf->name); ?></td>
+                                    <td><a href="<?php echo e(route('shelf.books', $shelf->id)); ?>" style="text-decoration: none;"><?php echo e($shelf->name); ?></a></td>
                                     <td><?php echo e($shelf->created_at->diffForHumans()); ?></td>
                                     <td>
                                       <form class="" action="<?php echo e(route('shelves.destroy',  $shelf->id)); ?>" method="post">

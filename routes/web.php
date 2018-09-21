@@ -31,9 +31,11 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin']], function(){
 
     // Categories
     Route::resource('category', 'Admin\CategoriesController');
+    Route::get('category/books/{id}', 'Admin\CategoriesController@cat_books')->name('category.books');
 
     //Book self
     Route::resource('shelves', 'Admin\ShelvesController');
+    Route::get('shelf/books/{id}', 'Admin\ShelvesController@shelf_books')->name('shelf.books');
 
     // Book mangement
     Route::resource('books', 'Admin\BooksManagementController');

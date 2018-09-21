@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use Session;
 use App\Shelf;
-use App\Http\Controllers\Controller;
+use App\BookManagement;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 // use Illuminate\Support\Facades\Session;
 
 class ShelvesController extends Controller
@@ -19,6 +21,13 @@ class ShelvesController extends Controller
       $shelves = Shelf::orderBy('created_at', 'desc')->get();
 
       return view('admin.shelf.index', compact('shelves'));
+    }
+
+    public function shelf_books($id)
+    {
+        $books = BookManagement::where('shelf_id', $id)->get();
+
+        return view('admin.books.index', compact('books'));
     }
 
     /**

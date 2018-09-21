@@ -31,7 +31,7 @@
                                 @foreach ($categories as $category)
                                   <tr>
                                     <td>{{ $i++ }}</td>
-                                    <td>{{ $category->name }}</td>
+                                    <td><a href="{{ route('category.books', $category->id) }}" style="text-decoration: none;">{{ $category->name }}</a></td>
                                     <td>{{ $category->created_at->diffForHumans() }}</td>
                                     <td>
                                       <form class="" action="{{ route('category.destroy',  $category->id) }}" method="post">

@@ -29,7 +29,7 @@
                                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                   <tr>
                                     <td><?php echo e($i++); ?></td>
-                                    <td><?php echo e($category->name); ?></td>
+                                    <td><a href="<?php echo e(route('category.books', $category->id)); ?>" style="text-decoration: none;"><?php echo e($category->name); ?></a></td>
                                     <td><?php echo e($category->created_at->diffForHumans()); ?></td>
                                     <td>
                                       <form class="" action="<?php echo e(route('category.destroy',  $category->id)); ?>" method="post">

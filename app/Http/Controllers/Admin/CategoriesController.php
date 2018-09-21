@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Session;
 use App\Category;
+use App\BookManagement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,6 +20,13 @@ class CategoriesController extends Controller
     $categories = Category::orderBy('created_at', 'desc')->get();
     
     return view('admin.category.index', compact('categories'));
+  }
+
+  public function cat_books($id)
+  {
+    $books = BookManagement::where('category_id', $id)->get();
+
+    return view('admin.books.index', compact('books'));
   }
 
   /**
