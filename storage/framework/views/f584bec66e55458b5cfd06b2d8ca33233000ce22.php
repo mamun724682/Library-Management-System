@@ -176,6 +176,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</div>
 </div>
 <!-- //Modal1 -->
+
 <!-- Modal2 -->
 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
@@ -314,9 +315,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 
 
-
 <?php echo $__env->yieldContent('content'); ?>
-
 
 
 
@@ -429,9 +428,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	</div>
 
 
-
 	<div class="clearfix"> </div>
-
 
 </div>
 </div>

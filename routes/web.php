@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Admin Url
 Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin']], function(){
     Route::resource('users', 'Admin\UsersController');
     Route::get('user/delete/{id}', 'Admin\UsersController@destroy')->name('user.destroy');
@@ -53,8 +54,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin']], function(){
 
 });
 
-
+// User Url
 Route::group(['middleware'=>'auth'], function(){
     Route::get('book-list', 'User\BookListController@getBooks')->name('user.bookList');
     Route::get('issue-book-list', 'User\BookListController@issueBooks')->name('user.issueBooks');
+    Route::get('issue-book-returned', 'User\BookListController@issueBooksReturned')->name('user.issueBooksReturned');
 });

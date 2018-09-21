@@ -19,8 +19,20 @@ class BookListController extends Controller
     public function issueBooks()
     {
         $issueBooks = IssueBook::where('user_id', Auth::user()->id)
-        ->orderBy('return_date','desc')
-        ->get();
+                                ->orderBy('return_date','desc')
+                                ->where('status', 0)
+                                ->get();
+
+        return view('user.issue.index')
+            ->with('issue_books', $issueBooks);
+    }
+
+    public function issueBooksReturned()
+    {
+        $issueBooks = IssueBook::where('user_id', Auth::user()->id)
+                                ->orderBy('return_date','desc')
+                                ->where('status', 1)
+                                ->get();
 
         return view('user.issue.index')
             ->with('issue_books', $issueBooks);

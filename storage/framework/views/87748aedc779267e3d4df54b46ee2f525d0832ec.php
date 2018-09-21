@@ -61,9 +61,13 @@
                         <a href="<?php echo e(route('user.bookList')); ?>"><span class="fa fa-users"></span> <span class="xn-text">Book List</span></a>
                     </li>
                     <li >
-                        <a href="<?php echo e(route('user.issueBooks')); ?>"><span class="fa fa-users"></span> <span class="xn-text">My Issued Books</span></a>
+                        <a href="<?php echo e(route('user.issueBooks')); ?>"><span class="fa fa-thumb-tack"></span> <span class="xn-text">My Issued Books</span></a>
+                    </li>
+                    <li >
+                        <a href="<?php echo e(route('user.issueBooksReturned')); ?>"><span class="fa fa-archive"></span> <span class="xn-text">My Returned Books</span></a>
                     </li>
                 <?php endif; ?>
+
                 
                 
                 

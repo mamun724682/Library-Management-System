@@ -25,7 +25,7 @@
                         <thead>
                             <th>Serial No.</th>
                             <th>Book Title</th>
-                            <th>User</th>
+                            <th>User Name</th>
                             <th>Issue Date</th>
                             <th>Return Date</th>
                             <th>Status</th>
