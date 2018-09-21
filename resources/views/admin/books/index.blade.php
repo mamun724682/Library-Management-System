@@ -16,6 +16,8 @@
                             <th>Author</th>
                             <th>Edition</th>
                             <th>Session</th>
+                            <th>Category</th>
+                            <th>Shelf</th>
                             <th>Availabilty</th>
                             <th>Issue Book</th>
                             <th>Action</th>
@@ -34,6 +36,8 @@
                                         <td>{{ $book->author }}</td>
                                         <td>{{ $book->edition }}</td>
                                         <td>{{ $book->session }}</td>
+                                        <td><a href="{{ route('category.books', $book->id) }}">{{ $book->category->name }}</a></td>
+                                        <td><a href="{{ route('shelf.books', $book->id) }}">{{ $book->shelf->name }}</a></td>
                                         <td>{{ $book->issues->count()? $book->quantity - $book->issues->count(): $book->quantity }}</td>
                                         <td>
                                             <a href="{{ route('book.issue', $book->id) }}" class="btn btn-xs btn-info">Issue</a>
@@ -42,7 +46,7 @@
                                             <form class="" action="{{ route('books.destroy', $book->id) }}" method="post">
                                                 {{ csrf_field() }} {{ method_field('delete') }}
                                                 <a class="btn btn-xs btn-info" href="{{ route('books.edit', $book->id) }}">Edit</a>
-                                                <a class="btn btn-xs btn-success" href="{{ route('books.show', $book->id) }}">View</a>
+                                                <a class="btn btn-xs btn-success" href="{{ route('books.show', $book->id) }}">Details</a>
                                                 <input class="btn btn-xs btn-danger" type="submit" name="" value="Delete">
                                             </form>
                                         </td>

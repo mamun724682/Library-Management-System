@@ -26,6 +26,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 
 <link href="<?php echo e(asset('css/toastr.min.css')); ?>" rel="stylesheet">
+
 <!-- font-awesome-icons -->
 <link href="<?php echo e(asset('frontEnd/css/font-awesome.css')); ?>" rel="stylesheet">
 <!-- //font-awesome-icons -->
@@ -494,7 +495,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
 		<!-- start-smoth-scrolling -->
 		<!-- for bootstrap working -->
-		<script src="<?php echo e(asset('js/bootstrap.js')); ?>"></script>
+		<script src="<?php echo e(asset('frontEnd/js/bootstrap.js')); ?>"></script>
 		<!-- //for bootstrap working -->
 		<!-- here stars scrolling icon -->
 		<script type="text/javascript">

@@ -45,7 +45,7 @@
                             <div style="padding-top:  30px;" class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
                                 <label for="categories" class="col-md-4 control-label">Book Category</label>
                                 <div class="col-md-6">
-                                    {{ $book->category->name }}
+                                    {{ $book->category->name }} <a href="{{ route('category.books', $book->id) }}">-->More books in this category</a>
                                 </div>
                             </div>
 
@@ -109,7 +109,7 @@
                                 <label for="shelves" class="col-md-4 control-label">Book Shelf</label>
 
                                 <div class="col-md-6">
-                                    {{ $book->shelf->name }}
+                                    {{ $book->shelf->name }} <a href="{{ route('shelf.books', $book->id) }}">-->More books in this shelf</a>
                                 </div>
                             </div>
                         </div>

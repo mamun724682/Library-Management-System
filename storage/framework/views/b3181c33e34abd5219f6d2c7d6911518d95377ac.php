@@ -14,6 +14,8 @@
                             <th>Author</th>
                             <th>Edition</th>
                             <th>Session</th>
+                            <th>Category</th>
+                            <th>Shelf</th>
                             <th>Availabilty</th>
                             <th>Issue Book</th>
                             <th>Action</th>
@@ -32,6 +34,8 @@
                                         <td><?php echo e($book->author); ?></td>
                                         <td><?php echo e($book->edition); ?></td>
                                         <td><?php echo e($book->session); ?></td>
+                                        <td><a href="<?php echo e(route('category.books', $book->id)); ?>"><?php echo e($book->category->name); ?></a></td>
+                                        <td><a href="<?php echo e(route('shelf.books', $book->id)); ?>"><?php echo e($book->shelf->name); ?></a></td>
                                         <td><?php echo e($book->issues->count()? $book->quantity - $book->issues->count(): $book->quantity); ?></td>
                                         <td>
                                             <a href="<?php echo e(route('book.issue', $book->id)); ?>" class="btn btn-xs btn-info">Issue</a>
@@ -41,7 +45,7 @@
                                                 <?php echo e(csrf_field()); ?> <?php echo e(method_field('delete')); ?>
 
                                                 <a class="btn btn-xs btn-info" href="<?php echo e(route('books.edit', $book->id)); ?>">Edit</a>
-                                                <a class="btn btn-xs btn-success" href="<?php echo e(route('books.show', $book->id)); ?>">View</a>
+                                                <a class="btn btn-xs btn-success" href="<?php echo e(route('books.show', $book->id)); ?>">Details</a>
                                                 <input class="btn btn-xs btn-danger" type="submit" name="" value="Delete">
                                             </form>
                                         </td>

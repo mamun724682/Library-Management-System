@@ -72,23 +72,22 @@
                 
                 {{-- Admin Sidebar --}}
                 @if (Auth::user()->is_admin)
-                    <li >
+                    <li>
                         <a href="{{ route('users.index') }}"><span class="fa fa-users"></span> <span class="xn-text">Users</span></a>
                     </li>
                 @endif
 
                 @if (Auth::user()->is_admin)
                     <li class="xn-openable">
-                        <a href="#"><span class="fa fa-book"></span> <span class="xn-text">Books</span></a>
-
+                        <a href=""><span class="fa fa-book"></span> <span class="xn-text">Books</span></a>
                         <ul>
                             <li>
-                                <a href="{{ route('books.create') }}"><span class="fa fa-plus"></span> <span class="xn-text">Add Books</span></a>
+                                <a href="{{ route('books.index') }}"><span class="fa fa-list-alt"></span> <span class="xn-text">Book List</span></a>
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <a href="{{ route('books.index') }}"><span class="fa fa-list-alt"></span> <span class="xn-text">Book List</span></a>
+                                <a href="{{ route('books.create') }}"><span class="fa fa-plus"></span> <span class="xn-text">Add Books</span></a>
                             </li>
                         </ul>
                     </li>

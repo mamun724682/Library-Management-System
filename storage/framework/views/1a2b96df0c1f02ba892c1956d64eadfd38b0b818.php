@@ -47,8 +47,7 @@
                             <div style="padding-top:  30px;" class="form-group<?php echo e($errors->has('category_id') ? ' has-error' : ''); ?>">
                                 <label for="categories" class="col-md-4 control-label">Book Category</label>
                                 <div class="col-md-6">
-                                    <?php echo e($book->category->name); ?>
-
+                                    <?php echo e($book->category->name); ?> <a href="<?php echo e(route('category.books', $book->id)); ?>">-->More books in this category</a>
                                 </div>
                             </div>
 
@@ -119,8 +118,7 @@
                                 <label for="shelves" class="col-md-4 control-label">Book Shelf</label>
 
                                 <div class="col-md-6">
-                                    <?php echo e($book->shelf->name); ?>
-
+                                    <?php echo e($book->shelf->name); ?> <a href="<?php echo e(route('shelf.books', $book->id)); ?>">-->More books in this shelf</a>
                                 </div>
                             </div>
                         </div>

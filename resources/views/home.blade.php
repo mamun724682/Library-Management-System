@@ -20,7 +20,7 @@
             <div class="panel-heading">Dashboard</div>
 
             <div class="panel-body">
-                <h1 class="" style="padding-left: 610px;">Welcome {{ Auth::user()->name }}</h1>
+                <h1 class="" style="padding-left: 620px;">Welcome {{ Auth::user()->name }}</h1>
                 @if (Auth::user()->is_admin)
                 <div class="col-md-12" style="padding: 40px;">
                     <div class="col-md-5">
@@ -156,22 +156,24 @@
                 </div>
 
                 @if (count($issueBooks))
-                <div class="col-md-5" style="border: 2px solid gray">
-                    <!-- START WIDGET REGISTRED -->
-                    <div class="widget widget-default">
-                        <div class="widget-item-left">
-                            <span class="fa fa-warning blink_me" style="font-size:48px;color:red"></span>
-                        </div>
-                        <div class="widget-data">
-                            <div class="col-sm-12">
-                                <h4 class="text-warning">Warning Message</h4>
-                                <ul class="list-group ">
-                                    @foreach ($issueBooks as $book)
-                                    <li class="list-group-item">
-                                        {{ $book->book->title }} book | <span @if (date('Y-m-d') == $book->return_date || date('Y-m-d') > $book->return_date)
-                                            class="blink_me "
-                                            @endif>Dateline over!<br>Kindly return this book ASAP.Otherwise you will be charged.</span>
+                    <div class="col-md-5" style="border: 2px solid gray">
+                        <!-- START WIDGET REGISTRED -->
+                        <div class="widget widget-default">
+                            <div class="widget-item-left">
+                                <span class="fa fa-warning blink_me" style="font-size:48px;color:red"></span>
+                            </div>
+                            <div class="widget-data">
+                                <div class="col-sm-12">
+                                    <h4 class="text-warning">Warning Message</h4>
+                                    <ul class="list-group ">
+                                        @foreach ($issueBooks as $book)
+                                        @if (date('Y-m-d') == $book->return_date || date('Y-m-d') > $book->return_date)
+                                        <li class="list-group-item">
+                                            {{ $book->book->title }} book | <span class="blink_me">
+                                                Dateline over!<br>
+                                            Kindly return this book ASAP.Otherwise you will be charged.</span>
                                         </li>
+                                        @endif
                                         @endforeach
                                     </ul>
                                 </div>
@@ -181,7 +183,7 @@
                         <!-- END WIDGET REGISTRED -->
 
                     </div>
-                    @endif
+                @endif
 
                     @endif
                     @endif
@@ -191,4 +193,4 @@
             </div>
         </div>
     </div>
-    @endsection
+@endsection
