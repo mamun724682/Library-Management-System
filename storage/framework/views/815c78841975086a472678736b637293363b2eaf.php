@@ -15,6 +15,7 @@
                             <th>Author</th>
                             <th>Edition</th>
                             <th>Session</th>
+                            
                         </thead>
 
                         <tbody>
@@ -31,7 +32,7 @@
                                         <td><?php echo e($book->author); ?></td>
                                         <td><?php echo e($book->edition); ?></td>
                                         <td><?php echo e($book->session); ?></td>
-
+                                        
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             <?php endif; ?>

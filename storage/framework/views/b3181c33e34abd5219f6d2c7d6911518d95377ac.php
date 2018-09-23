@@ -36,7 +36,8 @@
                                         <td><?php echo e($book->session); ?></td>
                                         <td><a href="<?php echo e(route('category.books', $book->id)); ?>"><?php echo e($book->category->name); ?></a></td>
                                         <td><a href="<?php echo e(route('shelf.books', $book->id)); ?>"><?php echo e($book->shelf->name); ?></a></td>
-                                        <td><?php echo e($book->issues->count()? $book->quantity - $book->issues->count(): $book->quantity); ?></td>
+                                        <td><?php echo e($book->issues->count() ? $book->quantity - $book->issues->count(): $book->quantity); ?></td>
+                                        
                                         <td>
                                             <a href="<?php echo e(route('book.issue', $book->id)); ?>" class="btn btn-xs btn-info">Issue</a>
                                         </td>

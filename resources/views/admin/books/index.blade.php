@@ -38,7 +38,7 @@
                                         <td>{{ $book->session }}</td>
                                         <td><a href="{{ route('category.books', $book->id) }}">{{ $book->category->name }}</a></td>
                                         <td><a href="{{ route('shelf.books', $book->id) }}">{{ $book->shelf->name }}</a></td>
-                                        <td>{{ $book->issues->count()? $book->quantity - $book->issues->count(): $book->quantity }}</td>
+                                        <td>{{ $book->issues->count() ? $book->quantity - $book->issues->count(): $book->quantity }}</td>
                                         <td>
                                             <a href="{{ route('book.issue', $book->id) }}" class="btn btn-xs btn-info">Issue</a>
                                         </td>

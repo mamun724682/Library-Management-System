@@ -17,6 +17,7 @@
                             <th>Author</th>
                             <th>Edition</th>
                             <th>Session</th>
+                            {{-- <th>Status</th> --}}
                         </thead>
 
                         <tbody>
@@ -33,7 +34,11 @@
                                         <td>{{ $book->author }}</td>
                                         <td>{{ $book->edition }}</td>
                                         <td>{{ $book->session }}</td>
-
+                                        {{-- <td>
+                                            @if ($book->issues->count() && !$book->issues->status)
+                                                
+                                            @endif
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                             @endif

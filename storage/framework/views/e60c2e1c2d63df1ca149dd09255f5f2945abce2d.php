@@ -169,7 +169,10 @@
                                         <li class="list-group-item">
                                             <?php echo e($book->book->title); ?> book | <span class="blink_me">
                                                 Dateline over!<br>
-                                            Kindly return this book ASAP.Otherwise you will be charged.</span>
+                                            Kindly return this book ASAP.Otherwise you will be charged 1tk/day. <br>
+                                        </span>
+                                        Total charged : <?php echo e(date_diff(date_create($book->return_date), date_create(date('Y-m-d')))->format('%a TK')); ?>
+
                                         </li>
                                         <?php endif; ?>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
