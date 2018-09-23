@@ -37,9 +37,12 @@
                                         <td><a href="<?php echo e(route('category.books', $book->id)); ?>"><?php echo e($book->category->name); ?></a></td>
                                         <td><a href="<?php echo e(route('shelf.books', $book->id)); ?>"><?php echo e($book->shelf->name); ?></a></td>
                                         <td><?php echo e($book->issues->count() ? $book->quantity - $book->issues->count(): $book->quantity); ?></td>
-                                        
                                         <td>
-                                            <a href="<?php echo e(route('book.issue', $book->id)); ?>" class="btn btn-xs btn-info">Issue</a>
+                                            <?php if($book->quantity - $book->issues->count()): ?>
+                                                <a href="<?php echo e(route('book.issue', $book->id)); ?>" class="btn btn-xs btn-info">Issue</a>
+                                            <?php else: ?>
+                                                <button class="btn btn-xs btn-danger" disabled>Unavailable</button>
+                                            <?php endif; ?>
                                         </td>
                                         <td>
                                             <form class="" action="<?php echo e(route('books.destroy', $book->id)); ?>" method="post">

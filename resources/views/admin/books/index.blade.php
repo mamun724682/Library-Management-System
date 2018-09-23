@@ -40,7 +40,11 @@
                                         <td><a href="{{ route('shelf.books', $book->id) }}">{{ $book->shelf->name }}</a></td>
                                         <td>{{ $book->issues->count() ? $book->quantity - $book->issues->count(): $book->quantity }}</td>
                                         <td>
-                                            <a href="{{ route('book.issue', $book->id) }}" class="btn btn-xs btn-info">Issue</a>
+                                            @if ($book->quantity - $book->issues->count())
+                                                <a href="{{ route('book.issue', $book->id) }}" class="btn btn-xs btn-info">Issue</a>
+                                            @else
+                                                <button class="btn btn-xs btn-danger" disabled>Unavailable</button>
+                                            @endif
                                         </td>
                                         <td>
                                             <form class="" action="{{ route('books.destroy', $book->id) }}" method="post">

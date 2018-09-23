@@ -76,9 +76,6 @@ class IssueController extends Controller
         }
         return redirect()->route('books.index');
 
-
-
-
     }
 
     /**

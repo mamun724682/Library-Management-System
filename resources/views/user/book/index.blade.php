@@ -17,7 +17,7 @@
                             <th>Author</th>
                             <th>Edition</th>
                             <th>Session</th>
-                            {{-- <th>Status</th> --}}
+                            <th>Status</th>
                         </thead>
 
                         <tbody>
@@ -34,11 +34,13 @@
                                         <td>{{ $book->author }}</td>
                                         <td>{{ $book->edition }}</td>
                                         <td>{{ $book->session }}</td>
-                                        {{-- <td>
-                                            @if ($book->issues->count() && !$book->issues->status)
-                                                
+                                        <td>
+                                            @if ($book->quantity - $book->issues->count() > 0)
+                                                <p class="text-primary">Available</p>
+                                            @else
+                                                <p class="text-danger">Unavailable</p>
                                             @endif
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                 @endforeach
                             @endif

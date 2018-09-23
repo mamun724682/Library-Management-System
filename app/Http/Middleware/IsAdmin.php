@@ -23,6 +23,7 @@ class IsAdmin
             Session::flash('warning', 'You have no permission!');
             return redirect('/');
         }
+
         return $next($request);
     }
 }

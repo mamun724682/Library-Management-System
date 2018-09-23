@@ -24,7 +24,7 @@ class BookManagement extends Model
     }
     public function issues()
     {
-        return $this->hasMany('App\IssueBook','book_id');
+        return $this->hasMany('App\IssueBook','book_id')->where('status', 0);
     }
 
 }

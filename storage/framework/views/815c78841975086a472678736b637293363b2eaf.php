@@ -15,7 +15,7 @@
                             <th>Author</th>
                             <th>Edition</th>
                             <th>Session</th>
-                            
+                            <th>Status</th>
                         </thead>
 
                         <tbody>
@@ -32,7 +32,13 @@
                                         <td><?php echo e($book->author); ?></td>
                                         <td><?php echo e($book->edition); ?></td>
                                         <td><?php echo e($book->session); ?></td>
-                                        
+                                        <td>
+                                            <?php if($book->quantity - $book->issues->count() > 0): ?>
+                                                <p class="text-primary">Available</p>
+                                            <?php else: ?>
+                                                <p class="text-danger">Unavailable</p>
+                                            <?php endif; ?>
+                                        </td>
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             <?php endif; ?>
