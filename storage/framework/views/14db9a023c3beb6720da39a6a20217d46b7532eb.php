@@ -31,10 +31,6 @@
 	</div>
 </div>
 
-<!-- bootstrap-pop-up -->
-
-<!-- //bootstrap-pop-up -->
-
 <!-- banner-bottom -->
 <div class="banner-bottom">
 	<div class="container">

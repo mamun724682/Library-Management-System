@@ -75,9 +75,6 @@
                     <li>
                         <a href="{{ route('users.index') }}"><span class="fa fa-users"></span> <span class="xn-text">Users</span></a>
                     </li>
-                @endif
-
-                @if (Auth::user()->is_admin)
                     <li class="xn-openable">
                         <a href=""><span class="fa fa-book"></span> <span class="xn-text">Books</span></a>
                         <ul>
@@ -91,28 +88,32 @@
                             </li>
                         </ul>
                     </li>
-                @endif
-
-                @if (Auth::user()->is_admin)
                     <li >
                         <a href="{{ route('category.index') }}"><span class="fa fa-tasks"></span> <span class="xn-text">Categories</span></a>
                     </li>
-                @endif
-
-                @if (Auth::user()->is_admin)
                     <li >
                         <a href="{{ route('shelves.index') }}"><span class="fa fa-database"></span> <span class="xn-text">Book Shelves</span></a>
                     </li>
-                @endif
-
-                @if (Auth::user()->is_admin)
                     <li >
                         <a href="{{ route('issue.index') }}"><span class="fa fa-thumb-tack"></span> <span class="xn-text">Book Issued List</span></a>
                     </li>
-                @endif
-                @if (Auth::user()->is_admin)
                     <li >
                         <a href="{{ route('issue.returned') }}"><span class="fa fa-archive"></span> <span class="xn-text">Book Returned List</span></a>
+                    </li>
+
+                    {{-- Blog --}}
+                    <li class="xn-openable">
+                        <a href=""><span class="fa fa-book"></span> <span class="xn-text">Blog Management</span></a>
+                        <ul>
+                            <li>
+                                <a href="{{ route('notices.index') }}"><span class="fa fa-list-alt"></span> <span class="xn-text">Notices</span></a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href=""><span class="fa fa-plus"></span> <span class="xn-text">Add Books</span></a>
+                            </li>
+                        </ul>
                     </li>
                 @endif
 
@@ -363,6 +364,10 @@
 <script type="text/javascript" src="{{ asset('admin/js/plugins/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('admin/js/plugins/daterangepicker/daterangepicker.js') }}"></script>
 <script type="text/javascript" src="{{ asset('admin/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+
+{{-- Summernote Package --}}
+<script type="text/javascript" src="{{ asset('admin/js/plugins/summernote/summernote.js') }}"></script>
+
 <!-- END THIS PAGE PLUGINS-->
 
 <!-- START TEMPLATE -->

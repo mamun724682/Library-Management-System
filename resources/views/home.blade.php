@@ -1,19 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-<style media="screen">
-.blink_me {
-    color: red;
-    font-weight: bold;
-    animation: blinker 2s linear infinite;
-}
 
-@keyframes blinker {
-    50% {
-        opacity: 0;
-    }
-}
-</style>
+{{-- blinker --}}
+@include('includes.blinker')
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="panel panel-default">

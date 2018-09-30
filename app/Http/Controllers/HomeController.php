@@ -29,8 +29,7 @@ class HomeController extends Controller
     */
     public function index()
     {
-
-
+        //Admin
         $user = User::all();
         $books = BookManagement::all();
         $categories = Category::all();

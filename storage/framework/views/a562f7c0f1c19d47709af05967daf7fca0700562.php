@@ -4,6 +4,7 @@
 	<title>LMS-Library Management System</title>
 	<link rel="shortcut icon" href="<?php echo e(asset('favicon.ico')); ?>" />
 	<!-- custom-theme -->
+	<meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Mastering Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -27,6 +28,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <link href="<?php echo e(asset('css/toastr.min.css')); ?>" rel="stylesheet">
 
+
+<?php echo $__env->make('includes.blinker', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 <!-- font-awesome-icons -->
 <link href="<?php echo e(asset('frontEnd/css/font-awesome.css')); ?>" rel="stylesheet">
 <!-- //font-awesome-icons -->
@@ -43,6 +47,16 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	.dropdown:hover .dropdown-menu {display: block;}
 
 	.dropdown:hover .dropbtn {background-color: ;}
+</style>
+<style type="text/css">
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 1000px;
+    overflow-y: auto;
+}
 </style>
 
 <!-- banner -->
@@ -293,10 +307,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 							</div>
 
-
-
-
-
 							<div class="form-group">
 								<div class="tp">
 									<input type="submit" name="register" value="register">
@@ -312,6 +322,23 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 </div>
 <!-- //Modal2 -->
 
+<!-- bootstrap-pop-up Modal -->
+<div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+	<div class="modal-dialog" style="width: 750px;" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+			</div>
+			<section>
+				<div class="modal-body">
+					
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<!-- End bootstrap-pop-up Modal -->
 
 
 
@@ -324,48 +351,32 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <div class="blog" id="blog">
 	<div class="container">
 
-		<h3 class="w3l_header w3_agileits_header"> Latest <span>  News</span></h3>
+		<h3 class="w3l_header w3_agileits_header"> Latest <span>  Notices</span></h3>
 		<div class="agile_inner_w3ls-grids">
+			<marquee behavior="scroll" direction="left" scrollamount="15" onmouseover="this.stop();" onmouseout="this.start();">
+				<?php if($notices): ?>
+				<?php $__currentLoopData = $notices; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notice): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+				
+				<div class="col-sm-6 w3-agile-post-grids">
+					<div class="w3-agile-post-img w3-agile-post-img2">
+						<a href="javascript:void(0);" class="openBtn" data-id="<?php echo e($notice->id); ?>">
+							<img src="<?php echo e($notice->getOriginal('image') ? $notice->image : 'Notice'); ?>" width="540px" height="400px">
+						</a>
+					</div>
+					<div class="w3-agile-post-info">
+						<h4><a href="javascript:void(0);" class="openBtn" data-id="<?php echo e($notice->id); ?>"><?php echo e(str_limit($notice->title, 30)); ?></a></h4>
+						<ul>
+							<li>Admin</li>
+							<li><?php echo e($notice->created_at->toDateString()); ?></li>
+						</ul>
+						
+					</div>
+				</div>
+				<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+				<?php endif; ?>
 
-			<div class="col-sm-6 w3-agile-post-grids">
-				<div class="w3-agile-post-img w3-agile-post-img1">
-					<a href="#" data-toggle="modal" data-target="#myModal">
-						<ul>
-							<li><i class="fa fa-comments" aria-hidden="true"></i> 05</li>
-							<li><i class="fa fa-heart" aria-hidden="true"></i> 874</li>
-							<li><i class="fa fa-share" aria-hidden="true"></i> Share</li>
-						</ul>
-					</a>
-				</div>
-				<div class="w3-agile-post-info">
-					<h4><a href="#" data-toggle="modal" data-target="#myModal">Quisque a rhoncus</a></h4>
-					<ul>
-						<li>By <a href="#">Admin</a></li>
-						<li>Jan 28th,2017</li>
-					</ul>
-					<p>Suspendisse in nisl at ipsum molestie dignissim. Pellentesque est nisi, blandit eget aliquam sed, consequat nec risus.</p>
-				</div>
-			</div>
-			<div class="col-sm-6 w3-agile-post-grids">
-				<div class="w3-agile-post-img w3-agile-post-img2">
-					<a href="#" data-toggle="modal" data-target="#myModal">
-						<ul>
-							<li><i class="fa fa-comments" aria-hidden="true"></i> 21</li>
-							<li><i class="fa fa-heart" aria-hidden="true"></i> 287</li>
-							<li><i class="fa fa-share" aria-hidden="true"></i> Share</li>
-						</ul>
-					</a>
-				</div>
-				<div class="w3-agile-post-info">
-					<h4><a href="#" data-toggle="modal" data-target="#myModal">Quisque a rhoncus</a></h4>
-					<ul>
-						<li>By <a href="#">Admin</a></li>
-						<li>Feb 24th,2017</li>
-					</ul>
-					<p>Suspendisse in nisl at ipsum molestie dignissim. Pellentesque est nisi, blandit eget aliquam sed, consequat nec risus.</p>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
+				<div class="clearfix"> </div>
+			</marquee>
 		</div>
 	</div>
 </div>
@@ -422,9 +433,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			</div>
 
 
-		</div>
+		</div> <br>
 		<div class="col-md-12 w3layouts_footer_grid text-center">
-			<p>© <?php echo date("Y"); ?> GONO LIBRARY. All Rights Reserved | Design by CSE 19th Batch</p>
+			<p>© <?php echo date("Y"); ?> GONO LIBRARY. All Rights Reserved | Design by <a href="<?php echo e(route('developers')); ?>" class="blink_me" style="color:red" target="_blank" >Coding Birds</a> of CSE 19th Batch</p>
 		</div>
 	</div>
 
@@ -459,6 +470,32 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
 
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+            $('.openBtn').click(function(e) {
+                e.preventDefault();
+                let id = $(this).data('id');
+                console.log(id);
+                let url = '<?php echo e(route('notice')); ?>';
+                $.ajaxSetup({
+				    headers: {
+				        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				    }
+				});
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {
+                        id: id
+                    },
+                    dataType: 'JSON'
+                }).done(function(data) {
+                    $('.modal-body').html(data.html);
+                });
+                $('#myModal').modal('show');
+            });
+        });
 </script>
 		<!-- stats
 		<script src="js/jquery.waypoints.min.js"></script>
@@ -500,14 +537,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!-- here stars scrolling icon -->
 		<script type="text/javascript">
 			$(document).ready(function() {
-			/*
+			
 				var defaults = {
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
 				easingType: 'linear'
 				};
-				*/
+				
 
 				$().UItoTop({ easingType: 'easeOutQuart' });
 

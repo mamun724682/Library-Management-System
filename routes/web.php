@@ -11,7 +11,10 @@
 |
 */
 
+//Blog
 Route::get('/', 'FrontEndController@home')->name('blog');
+Route::post('/notice', 'FrontEndController@notice')->name('notice');
+Route::get('/developers', 'FrontEndController@developers')->name('developers');
 
 Auth::routes();
 
@@ -53,6 +56,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin']], function(){
     Route::get('book/user-email', 'Admin\BooksManagementController@check')->name('email_available.check');
 
 
+    //Blog
+    Route::resource('notices', 'blog\NoticeController');
 
 });
 
