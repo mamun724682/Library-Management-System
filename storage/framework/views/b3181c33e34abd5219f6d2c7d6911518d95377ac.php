@@ -45,14 +45,18 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <form class="" action="<?php echo e(route('books.destroy', $book->id)); ?>" method="post">
+                                            <a class="btn btn-xs btn-info" href="<?php echo e(route('books.edit', $book->id)); ?>">Edit</a>
+
+                                            <a class="btn btn-xs btn-success" href="<?php echo e(route('books.show', $book->id)); ?>">Details</a>
+
+                                            <button class="btn btn-xs btn-danger" type="button" onclick="deleteBook(<?php echo e($book->id); ?>)">
+                                                Delete
+                                            </button>
+                                            <form id="delete-form-<?php echo e($book->id); ?>" action="<?php echo e(route('books.destroy', $book->id)); ?>" method="post" style="display: none;">
                                                 <?php echo e(csrf_field()); ?> <?php echo e(method_field('delete')); ?>
 
-                                                <a class="btn btn-xs btn-info" href="<?php echo e(route('books.edit', $book->id)); ?>">Edit</a>
-                                                <a class="btn btn-xs btn-success" href="<?php echo e(route('books.show', $book->id)); ?>">Details</a>
-                                                <input class="btn btn-xs btn-danger" type="submit" name="" value="Delete">
                                             </form>
-                                        </td>
+                                            </td>
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             <?php endif; ?>
@@ -64,6 +68,40 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+<script type="text/javascript">
+    function deleteBook(id) {
+        const swalWithBootstrapButtons = swal.mixin({
+          confirmButtonClass: 'btn btn-success',
+          cancelButtonClass: 'btn btn-danger',
+          buttonsStyling: false,
+      })
+
+        swalWithBootstrapButtons({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, cancel!',
+          reverseButtons: true
+      }).then((result) => {
+          if (result.value) {
+            event.preventDefault();
+            document.getElementById('delete-form-'+id).submit();
+        } else if (
+    // Read more about handling dismissals
+    result.dismiss === swal.DismissReason.cancel
+    ) {
+            swalWithBootstrapButtons(
+              'Cancelled',
+              'Your data is safe :)',
+              'error'
+              )
+        }
+    })
+  }
+</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

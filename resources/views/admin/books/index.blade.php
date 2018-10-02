@@ -47,13 +47,17 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <form class="" action="{{ route('books.destroy', $book->id) }}" method="post">
+                                            <a class="btn btn-xs btn-info" href="{{ route('books.edit', $book->id) }}">Edit</a>
+
+                                            <a class="btn btn-xs btn-success" href="{{ route('books.show', $book->id) }}">Details</a>
+
+                                            <button class="btn btn-xs btn-danger" type="button" onclick="deleteBook({{ $book->id }})">
+                                                Delete
+                                            </button>
+                                            <form id="delete-form-{{ $book->id }}" action="{{ route('books.destroy', $book->id) }}" method="post" style="display: none;">
                                                 {{ csrf_field() }} {{ method_field('delete') }}
-                                                <a class="btn btn-xs btn-info" href="{{ route('books.edit', $book->id) }}">Edit</a>
-                                                <a class="btn btn-xs btn-success" href="{{ route('books.show', $book->id) }}">Details</a>
-                                                <input class="btn btn-xs btn-danger" type="submit" name="" value="Delete">
                                             </form>
-                                        </td>
+                                            </td>
                                     </tr>
                                 @endforeach
                             @endif
@@ -65,4 +69,38 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+<script type="text/javascript">
+    function deleteBook(id) {
+        const swalWithBootstrapButtons = swal.mixin({
+          confirmButtonClass: 'btn btn-success',
+          cancelButtonClass: 'btn btn-danger',
+          buttonsStyling: false,
+      })
+
+        swalWithBootstrapButtons({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!',
+          cancelButtonText: 'No, cancel!',
+          reverseButtons: true
+      }).then((result) => {
+          if (result.value) {
+            event.preventDefault();
+            document.getElementById('delete-form-'+id).submit();
+        } else if (
+    // Read more about handling dismissals
+    result.dismiss === swal.DismissReason.cancel
+    ) {
+            swalWithBootstrapButtons(
+              'Cancelled',
+              'Your data is safe :)',
+              'error'
+              )
+        }
+    })
+  }
+</script>
 @endsection
