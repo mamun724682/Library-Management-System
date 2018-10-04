@@ -6,7 +6,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Issue Books</div>
+                <div class="panel-heading">
+                    <h2>
+                        Books Issued
+                    <span class="badge bg-info">{{ $issue_books->count() }}</span>
+                    </h2>
+                </div>
 
                 <div class="panel-body">
                     <table class="table datatable table-bordered">
@@ -17,6 +22,7 @@
                             <th>Issue Date</th>
                             <th>Return Date</th>
                             <th>Status</th>
+                            <th>Fine</th>
                             <th>Action</th>
                         </thead>
 
@@ -34,6 +40,13 @@
                                         <td>{{ $book->issue_date }}</td>
                                         <td>{{ $book->return_date }}</td>
                                         <td>{{ $book->status? 'Returned' : 'Pending' }}</td>
+                                        <td>
+                                            @if ($book->fine)
+                                                {{ $book->fine->fine }} TK
+                                                @else
+                                                    No Fine
+                                            @endif
+                                        </td>
                                         <td>
                                             @if (!$book->status)
                                                 <a href="{{ route('book.return',$book->id) }}" class="btn btn-xs btn-primary">Returned</a>

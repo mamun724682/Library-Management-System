@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Fine;
 use App\User;
 use App\Shelf;
 use App\Category;
@@ -42,6 +43,8 @@ class HomeController extends Controller
         ->orderBy('return_date','desc')
         ->get();
 
+        $fines = Fine::where('user_id', Auth::user()->id)->get();
+
         return view('home')
         ->with('user_count', count($user))
         ->with('book_count', count($books))
@@ -49,7 +52,8 @@ class HomeController extends Controller
         ->with('shelf_count', count($shelves))
         ->with('issued_count', count($bookIssued))
         ->with('returned_count', count($bookReturned))
-        ->with('issueBooks', $issueBooks);
+        ->with('issueBooks', $issueBooks)
+        ->with('fines', $fines);
 
     }
 }

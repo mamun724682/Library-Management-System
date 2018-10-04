@@ -12,8 +12,14 @@ class IssueBook extends Model
     {
         return $this->belongsTo('App\BookManagement','book_id');
     }
+
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function fine()
+    {
+        return $this->hasOne('App\Fine','issue_id');
     }
 }

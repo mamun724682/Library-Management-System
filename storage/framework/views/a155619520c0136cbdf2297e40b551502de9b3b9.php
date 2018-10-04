@@ -4,7 +4,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Issue Books</div>
+                <div class="panel-heading">
+                    <h2>
+                        Books Issued
+                    <span class="badge bg-info"><?php echo e($issue_books->count()); ?></span>
+                    </h2>
+                </div>
 
                 <div class="panel-body">
                     <table class="table datatable table-bordered">
@@ -15,6 +20,7 @@
                             <th>Issue Date</th>
                             <th>Return Date</th>
                             <th>Status</th>
+                            <th>Fine</th>
                             <th>Action</th>
                         </thead>
 
@@ -32,6 +38,13 @@
                                         <td><?php echo e($book->issue_date); ?></td>
                                         <td><?php echo e($book->return_date); ?></td>
                                         <td><?php echo e($book->status? 'Returned' : 'Pending'); ?></td>
+                                        <td>
+                                            <?php if($book->fine): ?>
+                                                <?php echo e($book->fine->fine); ?> TK
+                                                <?php else: ?>
+                                                    No Fine
+                                            <?php endif; ?>
+                                        </td>
                                         <td>
                                             <?php if(!$book->status): ?>
                                                 <a href="<?php echo e(route('book.return',$book->id)); ?>" class="btn btn-xs btn-primary">Returned</a>

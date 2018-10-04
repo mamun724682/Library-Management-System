@@ -4,7 +4,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">User</div>
+                <div class="panel-heading">
+                    <h2>
+                        All Books 
+                    <span class="badge bg-info"><?php echo e($books->count()); ?></span>
+                    </h2>
+                </div>
 
                 <div class="panel-body">
                     <table class="table datatable table-bordered">

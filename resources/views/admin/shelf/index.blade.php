@@ -6,7 +6,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading"><b>Book Selves</b></div>
+                <div class="panel-heading">
+                    <h2>
+                        All Shelves 
+                    <span class="badge bg-info">{{ $shelves->count() }}</span>
+                    </h2>
+                </div>
                 <div class="pull-right">
                     <div class="col-sm-12">
                         <br>

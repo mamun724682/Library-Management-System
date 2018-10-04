@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use Session;
+use App\Fine;
 use App\IssueBook;
 use App\BookManagement;
 use Illuminate\Http\Request;
@@ -122,6 +123,7 @@ class IssueController extends Controller
     {
         //
     }
+
     public function issue($id)
     {
         $book = BookManagement::findOrFail($id);
@@ -134,10 +136,15 @@ class IssueController extends Controller
         $book_returned = IssueBook::find($id);
         $book_returned->status = 1;
         if ($book_returned->save()) {
+
+            $fine = Fine::where('issue_id', $id)->first();
+            $fine->delete();
+
             Session::flash('success','Returned');
         }
         return redirect()->back();
     }
+    
     public function book_pending($id)
     {
         $book_pending = IssueBook::find($id);

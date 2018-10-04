@@ -6,7 +6,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1><b>Users</b></h1></div>
+                <div class="panel-heading">
+                    <h2>
+                        Users 
+                    <span class="badge bg-info">{{ $users->count() }}</span>
+                    </h2>
+                </div>
                 <div class="pull-right">
                     <div class="col-sm-12">
                         <br>
