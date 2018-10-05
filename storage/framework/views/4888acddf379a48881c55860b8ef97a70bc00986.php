@@ -4,11 +4,16 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">User</div>
+                <div class="panel-heading">
+                    <h2>
+                        Users
+                    <span class="badge bg-info"><?php echo e($users->count()); ?></span>
+                    </h2>
+                </div>
                 <div class="pull-right">
                     <div class="col-sm-12">
                         <br>
-                        <a href="<?php echo e(route('users.create')); ?>" class="btn btn-primary">Add User</a>
+                        <a href="<?php echo e(route('users.create')); ?>" class="btn btn-primary"><span class="fa fa-user"></span>Add User</a>
                     </div>
                 </div>
 
@@ -18,7 +23,7 @@
                             <th>Avatar</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Registered as</th>
+                            
                             <th>Status</th>
                             <th>Rule</th>
                             <th>Action</th>
@@ -31,7 +36,7 @@
                                         <td class="text-center"><img width="40px" style="border-radius: 50%;" src="<?php echo e(asset('uploads/avatar/'. $user->avatar)); ?>" /></td>
                                         <td><?php echo e($user->name); ?></td>
                                         <td><?php echo e($user->email); ?></td>
-                                        <td><?php echo e($user->reg_as? 'Teacher' : 'Student'); ?></td>
+                                        
                                         <td>
                                             <?php if( $user->is_approved): ?>
                                                 <p class="text-success">Verified</p>

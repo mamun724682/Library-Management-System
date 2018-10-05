@@ -290,7 +290,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								</div>
 							</div>
 
-							<div class="form-group">
+							{{-- <div class="form-group">
 								<label for="" class="control-label">Registered As</label>
 
 								<div>
@@ -302,7 +302,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</label>
 								</div>
 
-							</div>
+							</div> --}}
 
 							<div class="form-group">
 								<div class="tp">
@@ -325,11 +325,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<div class="modal-content">
 			<div class="modal-header">
 
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			</div>
 			<section>
 				<div class="modal-body">
-					
+
 				</div>
 			</section>
 		</div>
@@ -353,7 +353,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<marquee behavior="scroll" direction="left" scrollamount="15" onmouseover="this.stop();" onmouseout="this.start();">
 				@if ($notices)
 				@foreach ($notices as $notice)
-				
+
 				<div class="col-sm-6 w3-agile-post-grids">
 					<div class="w3-agile-post-img w3-agile-post-img2">
 						<a href="javascript:void(0);" class="openBtn" data-id="{{ $notice->id }}">
@@ -397,12 +397,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<h2>Quick <span>Links</span></h2>
 
 				<ul>
-					<li><a href="#">Library News</a></li>
-					<li><a href="#">History</a></li>
-					<li><a href="#">Meet Our Staff</a></li>
-					<li><a href="#">Board of Trustees</a></li>
-					<li><a href="#">Budget</a></li>
-					<li><a href="#">Annual Report</a></li>
+					<li><a href="#"><p>Library News</p></a></li>
+					<li><a href="#"><p>History</p></a></li>
+					<li><a href="#"><p>Meet Our Staff</p></a></li>
+					<li><a href="#"><p>Board of Trustees</p></a></li>
+					<li><a href="#"><p>Budget</p></a></li>
+					<li><a href="#"><p>Annual Report</p></a></li>
 				</ul>
 
 			</div>
@@ -419,11 +419,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</div>
 				<div class="fa fa-envelope">
 
-					<a href="mailto:support@libraria.com">admin@gonouniversity.edu.bd</a>
+					<a href="mailto:support@libraria.com"><p>admin@gonouniversity.edu.bd</p></a>
 				</div>
 				<div class="fa fa-phone">
 
-					<a href="tel:012-345-6789">+ 012-345-6789</a>
+					<a href="tel:012-345-6789"><p>+ 012-345-6789</p></a>
 				</div>
 
 
@@ -432,7 +432,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 		</div> <br>
 		<div class="col-md-12 w3layouts_footer_grid text-center">
-			<p>© <?php echo date("Y"); ?> GONO LIBRARY. All Rights Reserved | Design by <a href="{{ route('developers') }}" class="blink_me" style="color:red" target="_blank" >Coding Birds</a> of CSE 19th Batch</p>
+			<p>© <?php echo date("Y"); ?> GONO LIBRARY. All Rights Reserved | Developed by <a href="{{ route('developers') }}" class="blink_me" style="color:red" target="_blank" >Coding Birds</a> of CSE 19th Batch</p>
 		</div>
 	</div>
 
@@ -534,14 +534,14 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<!-- here stars scrolling icon -->
 		<script type="text/javascript">
 			$(document).ready(function() {
-			
+
 				var defaults = {
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
 				easingType: 'linear'
 				};
-				
+
 
 				$().UItoTop({ easingType: 'easeOutQuart' });
 

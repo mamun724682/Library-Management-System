@@ -19,6 +19,9 @@
                   <br>
 
                   <label>Devloper</label>
+                  <h3 class="pull-right">
+                    <a href="https://www.facebook.com/TarifHossainTony01728867397" class="w3_facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                  </h3>
 
                 </div>
               </div>
@@ -32,13 +35,12 @@
                 <img src="{{ asset('/devloper/66.PNG') }}" alt="No Image" class="img-responsive" width="100% ">
                 <div class="caption">
                   <h4>
-                    <b><a href="fb.com/mamun724682" target="_blank">ABDULLAH AL MAMUN</a></b>
+                    <b>ABDULLAH AL MAMUN</b>
                   </h4>
                   <br>
 
                   <label>Devloper</label>
                   <h3 class="pull-right">
-                    <a href="https://twitter.com/mamun724682" class="w3_twitter" target="_blank"><i class="fa fa-twitter"></i></a>
                     <a href="https://fb.com/mamun724682" class="w3_facebook" target="_blank"><i class="fa fa-facebook"></i></a>
                   </h3>
                 </div>
@@ -58,6 +60,9 @@
                   <br>
 
                   <label>Devloper</label>
+                  <h3 class="pull-right">
+                    <a href="https://www.facebook.com/fahad.rownak" class="w3_facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                  </h3>
 
                 </div>
               </div>
@@ -79,6 +84,9 @@
                   <br>
 
                   <label>Devloper</label>
+                  <h3 class="pull-right">
+                    <a href="https://www.facebook.com/imrul.kayes.779" class="w3_facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                  </h3>
 
                 </div>
               </div>
@@ -96,6 +104,9 @@
                   </h4>
                   <br>
                   <label>Devloper</label>
+                  <h3 class="pull-right">
+                    <a href="https://www.facebook.com/sk.soykot" class="w3_facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                  </h3>
                 </div>
               </div>
             </div>
@@ -107,4 +118,3 @@
 </div>
 
 @endsection
-
