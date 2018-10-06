@@ -138,13 +138,16 @@ class IssueController extends Controller
         if ($book_returned->save()) {
 
             $fine = Fine::where('issue_id', $id)->first();
-            $fine->delete();
+            if ($fine) {
+                $fine->delete();
+            }
+
 
             Session::flash('success','Returned');
         }
         return redirect()->back();
     }
-    
+
     public function book_pending($id)
     {
         $book_pending = IssueBook::find($id);

@@ -21,7 +21,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Admin Url
-Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin']], function(){
+Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin','Fine']], function(){
     Route::resource('users', 'Admin\UsersController');
     Route::get('user/delete/{id}', 'Admin\UsersController@destroy')->name('user.destroy');
     Route::get('user/verify/{id}', 'Admin\UsersController@verify')->name('user.verify');

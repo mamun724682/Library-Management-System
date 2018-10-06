@@ -60,4 +60,3 @@ class FineBook
         return $next($request);
     }
 }
-

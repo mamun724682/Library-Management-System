@@ -175,9 +175,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<div class="tp">
 									<input type="submit" name="login" value="login">
 
-									<a class="btn btn-link" href="{{ route('password.request') }}">
-										Forgot Your Password?
-									</a>
+									
 								</div>
 							</div>
 						</form>
@@ -397,12 +395,12 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<h2>Quick <span>Links</span></h2>
 
 				<ul>
-					<li><a href="#"><p>Library News</p></a></li>
-					<li><a href="#"><p>History</p></a></li>
-					<li><a href="#"><p>Meet Our Staff</p></a></li>
-					<li><a href="#"><p>Board of Trustees</p></a></li>
-					<li><a href="#"><p>Budget</p></a></li>
-					<li><a href="#"><p>Annual Report</p></a></li>
+					<li><p><a href="#">Library News</a></p></li>
+					<li><p><a href="#">History</a></p></li>
+					<li><p><a href="#">Meet Our Staff</a></p></li>
+					<li><p><a href="#">Board of Trustees</a></p></li>
+					<li><p><a href="#">Budget</a></p></li>
+					<li><p><a href="#">Annual Report</a></p></li>
 				</ul>
 
 			</div>
@@ -419,11 +417,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				</div>
 				<div class="fa fa-envelope">
 
-					<a href="mailto:support@libraria.com"><p>admin@gonouniversity.edu.bd</p></a>
+					<p><a href="mailto:support@libraria.com">admin@gonouniversity.edu.bd</a></p>
 				</div>
 				<div class="fa fa-phone">
 
-					<a href="tel:012-345-6789"><p>+ 012-345-6789</p></a>
+					<p><a href="tel:012-345-6789">+ 012-345-6789</a></p>
 				</div>
 
 
@@ -432,7 +430,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 		</div> <br>
 		<div class="col-md-12 w3layouts_footer_grid text-center">
-			<p>© <?php echo date("Y"); ?> GONO LIBRARY. All Rights Reserved | Developed by <a href="{{ route('developers') }}" class="blink_me" style="color:red" target="_blank" >Coding Birds</a> of CSE 19th Batch</p>
+			<p>© <?php echo date("Y"); ?> GONO LIBRARY. All Rights Reserved | Developed by <a href="{{ route('developers') }}" class="blink_me" style="color:#33cc99" target="_blank" >Coding Birds</a> of CSE 19th Batch</p>
 		</div>
 	</div>
 
