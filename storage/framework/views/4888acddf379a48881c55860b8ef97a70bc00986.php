@@ -23,7 +23,7 @@
                             <th>Avatar</th>
                             <th>Name</th>
                             <th>Email</th>
-                            
+                            <th>Registered as</th>
                             <th>Status</th>
                             <th>Rule</th>
                             <th>Action</th>
@@ -36,7 +36,7 @@
                                         <td class="text-center"><img width="40px" style="border-radius: 50%;" src="<?php echo e(asset('uploads/avatar/'. $user->avatar)); ?>" /></td>
                                         <td><?php echo e($user->name); ?></td>
                                         <td><?php echo e($user->email); ?></td>
-                                        
+                                        <td><?php echo e($user->reg_as? 'Teacher' : 'Staff'); ?></td>
                                         <td>
                                             <?php if( $user->is_approved): ?>
                                                 <p class="text-success">Verified</p>

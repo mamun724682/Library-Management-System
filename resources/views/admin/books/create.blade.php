@@ -89,6 +89,29 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('sub_category_id') ? ' has-error' : '' }}">
+                            <label for="categories" class="col-md-4 control-label">Book Sub Category</label>
+
+                            <div class="col-md-6">
+                                <select name="sub_category_id" class="form-control">
+                                    <option>Select a sub category</option>
+                                    @foreach($abcd as $cat)
+                                    <optgroup>
+
+                                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+
+                                    </optgroup>
+
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('sub_category_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('sub_category_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('page') ? ' has-error' : '' }}">
                             <label for="page" class="col-md-4 control-label">Book Page</label>
 

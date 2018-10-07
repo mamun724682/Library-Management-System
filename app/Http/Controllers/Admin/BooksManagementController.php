@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use DB;
+use App\SubCategory;
 use Session;
 use App\User;
 use App\Shelf;
@@ -32,12 +32,14 @@ class BooksManagementController extends Controller
     {
         $category = Category::all();
         $shelf = Shelf::all();
+        $abcd = SubCategory::orderBy('name', 'asc')->get();
         if ($category->count() == 0 || $shelf->count() == 0) {
             Session::flash('fail','You must have some categories and shelfs before attempting Add a Book');
             return redirect()->back();
         }
         return view('admin.books.create')
         ->with('categories',$category)
+        ->with('abcd', $abcd)
         ->with('shelves',$shelf);
     }
 
@@ -72,6 +74,7 @@ class BooksManagementController extends Controller
         $book->edition = $request->edition;
         $book->session = $request->session;
         $book->category_id = $request->category_id;
+        $book->sub_category_id = $request->sub_category_id;
         $book->page = $request->page;
         $book->publisher = $request->publisher;
         $book->language = $request->language;
@@ -118,6 +121,7 @@ class BooksManagementController extends Controller
         return view('admin.books.edit')
         ->with('shelves', Shelf::all())
         ->with('categories', Category::all())
+        ->with('sub_category', SubCategory::all())
         ->with('book', BookManagement::find($id));
     }
 
@@ -153,6 +157,7 @@ class BooksManagementController extends Controller
         $book->edition = $request->edition;
         $book->session = $request->session;
         $book->category_id = $request->category_id;
+        $book->sub_category_id = $request->sub_category_id;
         $book->page = $request->page;
         $book->publisher = $request->publisher;
         $book->language = $request->language;

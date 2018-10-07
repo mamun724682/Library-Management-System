@@ -88,6 +88,29 @@
                                 <?php endif; ?>
                             </div>
                         </div>
+                        <div class="form-group<?php echo e($errors->has('sub_category_id') ? ' has-error' : ''); ?>">
+                            <label for="categories" class="col-md-4 control-label">Book Sub Category</label>
+
+                            <div class="col-md-6">
+                                <select name="sub_category_id" class="form-control">
+                                    <option>Select a sub category</option>
+                                    <?php $__currentLoopData = $abcd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <optgroup>
+
+                                    <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->name); ?></option>
+
+                                    </optgroup>
+
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+
+                                <?php if($errors->has('sub_category_id')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('sub_category_id')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
                         <div class="form-group<?php echo e($errors->has('page') ? ' has-error' : ''); ?>">
                             <label for="page" class="col-md-4 control-label">Book Page</label>
 

@@ -17,6 +17,10 @@ class BookManagement extends Model
     {
     	return $this->belongsTo('App\Category');
     }
+    public function sub_category()
+    {
+    	return $this->belongsTo('App\SubCategory');
+    }
 
     public function shelf()
     {

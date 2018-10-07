@@ -59,6 +59,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin','Fine']], functi
     //Blog
     Route::resource('notices', 'blog\NoticeController');
 
+    // Sub category
+    Route::resource('sub-category','Admin\SubCategoriesController');
+
 });
 
 // User Url

@@ -20,6 +20,7 @@ class CreateBookManagementsTable extends Migration
             $table->string('edition');
             $table->string('session');
             $table->integer('category_id')->unsigned()->index();
+            $table->integer('sub_category_id')->unsigned()->index();
             $table->integer('page');
             $table->string('publisher');
             $table->string('language');
@@ -33,6 +34,7 @@ class CreateBookManagementsTable extends Migration
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('shelf_id')->references('id')->on('shelves')->onDelete('cascade');
+            
         });
     }
 

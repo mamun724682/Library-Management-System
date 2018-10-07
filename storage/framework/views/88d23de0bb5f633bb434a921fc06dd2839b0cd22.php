@@ -54,7 +54,7 @@
                     <a href="<?php echo e(route('home')); ?>"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
                 </li>
 
-                
+
                 
                 <?php if(!Auth::user()->is_admin): ?>
                     <li >
@@ -68,8 +68,8 @@
                     </li>
                 <?php endif; ?>
 
-                
-                
+
+
                 
                 <?php if(Auth::user()->is_admin): ?>
                     <li>
@@ -90,6 +90,9 @@
                     </li>
                     <li >
                         <a href="<?php echo e(route('category.index')); ?>"><span class="fa fa-tasks"></span> <span class="xn-text">Categories</span></a>
+                    </li>
+                    <li >
+                        <a href="<?php echo e(route('sub-category.index')); ?>"><span class="fa fa-tasks"></span> <span class="xn-text">Sub Categories</span></a>
                     </li>
                     <li >
                         <a href="<?php echo e(route('shelves.index')); ?>"><span class="fa fa-database"></span> <span class="xn-text">Book Shelves</span></a>

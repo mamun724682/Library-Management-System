@@ -25,7 +25,7 @@
                             <th>Avatar</th>
                             <th>Name</th>
                             <th>Email</th>
-                            {{-- <th>Registered as</th> --}}
+                            <th>Registered as</th>
                             <th>Status</th>
                             <th>Rule</th>
                             <th>Action</th>
@@ -38,7 +38,7 @@
                                         <td class="text-center"><img width="40px" style="border-radius: 50%;" src="{{ asset('uploads/avatar/'. $user->avatar) }}" /></td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        {{-- <td>{{ $user->reg_as? 'Teacher' : 'Student' }}</td> --}}
+                                        <td>{{ $user->reg_as? 'Teacher' : 'Staff' }}</td>
                                         <td>
                                             @if ( $user->is_approved)
                                                 <p class="text-success">Verified</p>

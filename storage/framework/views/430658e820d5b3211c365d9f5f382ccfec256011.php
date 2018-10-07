@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2>
-                        All Books 
+                        All Books
                     <span class="badge bg-info"><?php echo e($books->count()); ?></span>
                     </h2>
                 </div>
@@ -20,6 +20,7 @@
                             <th>Edition</th>
                             <th>Session</th>
                             <th>Category</th>
+                            <th>SubCategory</th>
                             <th>Shelf</th>
                             <th>Availabilty</th>
                             <th>Issue Book</th>
@@ -40,6 +41,7 @@
                                         <td><?php echo e($book->edition); ?></td>
                                         <td><?php echo e($book->session); ?></td>
                                         <td><a href="<?php echo e(route('category.books', $book->id)); ?>"><?php echo e($book->category->name); ?></a></td>
+                                        <td><?php echo e($book->sub_category->name); ?></a></td>
                                         <td><a href="<?php echo e(route('shelf.books', $book->id)); ?>"><?php echo e($book->shelf->name); ?></a></td>
                                         <td><?php echo e($book->issues->count() ? $book->quantity - $book->issues->count(): $book->quantity); ?></td>
                                         <td>

@@ -175,7 +175,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<div class="tp">
 									<input type="submit" name="login" value="login">
 
-									
+
 								</div>
 							</div>
 						</form>
@@ -288,7 +288,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								</div>
 							</div>
 
-							{{-- <div class="form-group">
+							<div class="form-group">
 								<label for="" class="control-label">Registered As</label>
 
 								<div>
@@ -296,11 +296,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 										<input type="radio" value="1" name="reg_as" checked>Teacher
 									</label>
 									<label class="radio-inline">
-										<input type="radio" value="0" name="reg_as">Student
+										<input type="radio" value="0" name="reg_as">Staff
 									</label>
 								</div>
 
-							</div> --}}
+							</div>
 
 							<div class="form-group">
 								<div class="tp">
