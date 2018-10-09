@@ -65,22 +65,18 @@
                                     <?php endif; ?>
                                 </div>
                             </div>
+
                             <div class="form-group<?php echo e($errors->has('category_id') ? ' has-error' : ''); ?>">
                                 <label for="categories" class="col-md-4 control-label">Book Category</label>
-
                                 <div class="col-md-6">
-                                    <select name="category_id" class="form-control">
+                                    <select name="category_id" id="category" onchange="getSubCategory(this.value)" class="form-control">
                                         <option value="<?php echo e($book->category->id); ?>"><?php echo e($book->category->name); ?></option>
                                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <optgroup>
-
                                                 <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->name); ?></option>
-
                                             </optgroup>
-
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
-
                                     <?php if($errors->has('category_id')): ?>
                                         <span class="help-block">
                                             <strong><?php echo e($errors->first('category_id')); ?></strong>
@@ -88,29 +84,22 @@
                                     <?php endif; ?>
                                 </div>
                             </div>
+
                             <div class="form-group<?php echo e($errors->has('sub_category_id') ? ' has-error' : ''); ?>">
                                 <label for="categories" class="col-md-4 control-label">Book Sub Category</label>
-
                                 <div class="col-md-6">
-                                    <select name="sub_category_id" class="form-control">
+                                    <select name="sub_category_id" id="sub_category" class="form-control">
                                         <option value="<?php echo e($book->sub_category->id); ?>"><?php echo e($book->sub_category->name); ?></option>
-                                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <optgroup>
-
-                                                <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->name); ?></option>
-
-                                            </optgroup>
-
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
-
-                                    <?php if($errors->has('category_id')): ?>
+                                    <?php if($errors->has('sub_category_id')): ?>
                                         <span class="help-block">
-                                            <strong><?php echo e($errors->first('category_id')); ?></strong>
+                                            <strong><?php echo e($errors->first('sub_category_id')); ?></strong>
                                         </span>
                                     <?php endif; ?>
                                 </div>
                             </div>
+
+
                             <div class="form-group<?php echo e($errors->has('page') ? ' has-error' : ''); ?>">
                                 <label for="page" class="col-md-4 control-label">Book Page</label>
 
@@ -265,6 +254,27 @@
         </div>
     </div>
 
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+    <script type="text/javascript">
+        function getSubCategory(val) {
+            $.ajax({
+                type: "get",
+                url: "<?php echo e(route('sub.category.ajax')); ?>",
+                data:{category_id : val},
+                success: function(data){
+                    $('#sub_category').html("<option value=\"\">Choose</option>");
+                    $.each(data, function(key, value) {
+                        $('#sub_category')
+                        .append($("<option></option>")
+                        .attr("value",value.id)
+                        .text(value.name));
+                    });
+                }
+            });
+        }
+    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

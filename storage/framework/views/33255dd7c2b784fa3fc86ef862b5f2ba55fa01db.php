@@ -11,6 +11,27 @@
 
 
                         <div class="form-group<?php echo e($errors->has('name') ? ' has-error' : ''); ?>">
+                            <label for="cat_id" class="col-md-4 control-label">Category</label>
+
+                            <div class="col-md-6">
+                                <select name="cat_id" class="form-control">
+                                    <option>Select a category</option>
+                                    <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
+                                </select>
+
+                                <?php if($errors->has('cat_id')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('cat_id')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group<?php echo e($errors->has('name') ? ' has-error' : ''); ?>">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
@@ -23,6 +44,7 @@
                                 <?php endif; ?>
                             </div>
                         </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

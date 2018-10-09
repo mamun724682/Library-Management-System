@@ -6,7 +6,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2>
-                        All Categories
+                        All Sub Categories
                     <span class="badge bg-info"><?php echo e($categories->count()); ?></span>
                     </h2>
                 </div>
@@ -34,7 +34,7 @@
                                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                   <tr>
                                     <td><?php echo e($i++); ?></td>
-                                    <td><?php echo e($category->name); ?></a></td>
+                                    <td><?php echo e($category->name); ?></td>
                                     <td><?php echo e($category->created_at->diffForHumans()); ?></td>
                                     <td>
                                       <form class="" action="<?php echo e(route('sub-category.destroy',  $category->id)); ?>" method="post">

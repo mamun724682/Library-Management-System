@@ -66,22 +66,18 @@
                                     @endif
                                 </div>
                             </div>
+
                             <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
                                 <label for="categories" class="col-md-4 control-label">Book Category</label>
-
                                 <div class="col-md-6">
-                                    <select name="category_id" class="form-control">
+                                    <select name="category_id" id="category" onchange="getSubCategory(this.value)" class="form-control">
                                         <option value="{{ $book->category->id }}">{{ $book->category->name }}</option>
                                         @foreach($categories as $cat)
                                             <optgroup>
-
                                                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-
                                             </optgroup>
-
                                         @endforeach
                                     </select>
-
                                     @if ($errors->has('category_id'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('category_id') }}</strong>
@@ -89,29 +85,22 @@
                                     @endif
                                 </div>
                             </div>
+
                             <div class="form-group{{ $errors->has('sub_category_id') ? ' has-error' : '' }}">
                                 <label for="categories" class="col-md-4 control-label">Book Sub Category</label>
-
                                 <div class="col-md-6">
-                                    <select name="sub_category_id" class="form-control">
+                                    <select name="sub_category_id" id="sub_category" class="form-control">
                                         <option value="{{ $book->sub_category->id }}">{{ $book->sub_category->name }}</option>
-                                        @foreach($categories as $cat)
-                                            <optgroup>
-
-                                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-
-                                            </optgroup>
-
-                                        @endforeach
                                     </select>
-
-                                    @if ($errors->has('category_id'))
+                                    @if ($errors->has('sub_category_id'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('category_id') }}</strong>
+                                            <strong>{{ $errors->first('sub_category_id') }}</strong>
                                         </span>
                                     @endif
                                 </div>
                             </div>
+
+
                             <div class="form-group{{ $errors->has('page') ? ' has-error' : '' }}">
                                 <label for="page" class="col-md-4 control-label">Book Page</label>
 
@@ -266,4 +255,25 @@
         </div>
     </div>
 
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        function getSubCategory(val) {
+            $.ajax({
+                type: "get",
+                url: "{{route('sub.category.ajax')}}",
+                data:{category_id : val},
+                success: function(data){
+                    $('#sub_category').html("<option value=\"\">Choose</option>");
+                    $.each(data, function(key, value) {
+                        $('#sub_category')
+                        .append($("<option></option>")
+                        .attr("value",value.id)
+                        .text(value.name));
+                    });
+                }
+            });
+        }
+    </script>
 @endsection

@@ -8,14 +8,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h2>
-                        All Categories
+                        All Sub Categories
                     <span class="badge bg-info">{{ $categories->count() }}</span>
                     </h2>
                 </div>
                 <div class="pull-right">
                     <div class="col-sm-12">
                         <br>
-                        <a href="{{ route('sub-category.create') }}" class="btn btn-primary">Add Category</a>
+                        <a href="{{ route('sub-category.create') }}" class="btn btn-primary">Add Sub Category</a>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@
                                 @foreach ($categories as $category)
                                   <tr>
                                     <td>{{ $i++ }}</td>
-                                    <td>{{ $category->name }}</a></td>
+                                    <td>{{ $category->name }}</td>
                                     <td>{{ $category->created_at->diffForHumans() }}</td>
                                     <td>
                                       <form class="" action="{{ route('sub-category.destroy',  $category->id) }}" method="post">

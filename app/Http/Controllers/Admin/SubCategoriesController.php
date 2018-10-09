@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Session;
+use App\Category;
 use App\SubCategory;
 use App\BookManagement;
 use Illuminate\Http\Request;
@@ -38,7 +39,8 @@ class SubCategoriesController extends Controller
   */
   public function create()
   {
-    return view('admin.sub_category.create');
+      $category = Category::all();
+    return view('admin.sub_category.create')->with('category',$category);
   }
 
   /**
@@ -56,6 +58,7 @@ class SubCategoriesController extends Controller
     $category =new SubCategory();
 
     $category->name = $request->name;
+    $category->cat_id = $request->cat_id;
 
     if ($category->save()) {
       Session::flash('success', 'Successfully Category Created');
@@ -135,4 +138,19 @@ class SubCategoriesController extends Controller
 
     return redirect()->route('sub_category.index');
   }
+  public function sub_cat($id)
+  {
+      $books = BookManagement::where('sub_category_id', $id)->get();
+      return view('admin.books.index', compact('books'));
+  }
+
+  public function getSubCategoryByAjax(Request $request)
+  {
+      $category_id = $request->category_id;
+
+      $subCategories = SubCategory::where('cat_id', $category_id)->get()->toArray();
+
+      return $subCategories;
+  }
+
 }

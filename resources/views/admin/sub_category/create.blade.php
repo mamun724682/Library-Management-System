@@ -12,6 +12,27 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="cat_id" class="col-md-4 control-label">Category</label>
+
+                            <div class="col-md-6">
+                                <select name="cat_id" class="form-control">
+                                    <option>Select a category</option>
+                                    @foreach ($category as $cat)
+                                        <option value="{{$cat->id}}">{{ $cat->name }}</option>
+                                    @endforeach
+
+
+                                </select>
+
+                                @if ($errors->has('cat_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cat_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
@@ -24,6 +45,7 @@
                                 @endif
                             </div>
                         </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

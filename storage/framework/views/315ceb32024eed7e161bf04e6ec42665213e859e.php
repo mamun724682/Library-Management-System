@@ -69,7 +69,7 @@
                             <label for="categories" class="col-md-4 control-label">Book Category</label>
 
                             <div class="col-md-6">
-                                <select name="category_id" class="form-control">
+                                <select name="category_id" id="category" onchange="getSubCategory(this.value)" class="form-control">
                                     <option>Select a category</option>
                                     <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <optgroup>
@@ -92,16 +92,8 @@
                             <label for="categories" class="col-md-4 control-label">Book Sub Category</label>
 
                             <div class="col-md-6">
-                                <select name="sub_category_id" class="form-control">
+                                <select name="sub_category_id" id="sub_category" class="form-control">
                                     <option>Select a sub category</option>
-                                    <?php $__currentLoopData = $abcd; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <optgroup>
-
-                                    <option value="<?php echo e($cat->id); ?>"><?php echo e($cat->name); ?></option>
-
-                                    </optgroup>
-
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
 
                                 <?php if($errors->has('sub_category_id')): ?>
@@ -241,10 +233,6 @@
                             </div>
                         </div>
 
-
-
-
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -252,12 +240,37 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+
+    <script type="text/javascript">
+
+    function getSubCategory(val) {
+        $.ajax({
+            type: "get",
+            url: "<?php echo e(route('sub.category.ajax')); ?>",
+            data:{category_id : val},
+            success: function(data){
+                $('#sub_category').html("<option value=\"\">Choose</option>");
+                $.each(data, function(key, value) {
+                    $('#sub_category')
+                    .append($("<option></option>")
+                    .attr("value",value.id)
+                    .text(value.name));
+                });
+            }
+        });
+    }
+    </script>
 
 <?php $__env->stopSection(); ?>
 

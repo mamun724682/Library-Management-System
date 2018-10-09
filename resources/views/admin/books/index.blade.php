@@ -43,7 +43,7 @@
                                         <td>{{ $book->edition }}</td>
                                         <td>{{ $book->session }}</td>
                                         <td><a href="{{ route('category.books', $book->id) }}">{{ $book->category->name }}</a></td>
-                                        <td>{{ $book->sub_category->name }}</a></td>
+                                        <td><a href="{{ route('sub.books',$book->id) }}">{{ $book->sub_category ? $book->sub_category->name : ''}}</a></td>
                                         <td><a href="{{ route('shelf.books', $book->id) }}">{{ $book->shelf->name }}</a></td>
                                         <td>{{ $book->issues->count() ? $book->quantity - $book->issues->count(): $book->quantity }}</td>
                                         <td>

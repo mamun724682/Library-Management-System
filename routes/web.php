@@ -19,6 +19,8 @@ Route::get('/developers', 'FrontEndController@developers')->name('developers');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/book-search', 'FrontEndController@bookSearch')->name('book.search');
+Route::get('/book-detail/{id}', 'FrontEndController@bookDetail')->name('book.detail');
 
 //Admin Url
 Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin','Fine']], function(){
@@ -35,6 +37,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin','Fine']], functi
     // Categories
     Route::resource('category', 'Admin\CategoriesController');
     Route::get('category/books/{id}', 'Admin\CategoriesController@cat_books')->name('category.books');
+
 
     //Book self
     Route::resource('shelves', 'Admin\ShelvesController');
@@ -61,6 +64,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','IsAdmin','Fine']], functi
 
     // Sub category
     Route::resource('sub-category','Admin\SubCategoriesController');
+    Route::get('sub_cat/books/{id}', 'Admin\SubCategoriesController@sub_cat')->name('sub.books');
+    Route::get('sub_category/ajax', 'Admin\SubCategoriesController@getSubCategoryByAjax')->name('sub.category.ajax');
 
 });
 
